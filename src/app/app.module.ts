@@ -8,6 +8,8 @@ import { PendientesPage } from '../pages/pendientes/pendientes';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil';
+import { ExtractosPage } from '../pages/extractos/extractos';
+
 
 import { HttpModule } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,7 +24,8 @@ import { RestProvider } from '../providers/rest/rest';
     PendientesPage,
     LoginPage,
     SignupPage,
-    MiPerfilPage
+    MiPerfilPage,
+    ExtractosPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { RestProvider } from '../providers/rest/rest';
     PendientesPage,
     LoginPage,
     SignupPage,
-    MiPerfilPage
+    MiPerfilPage,
+    ExtractosPage
   ],
   providers: [
     StatusBar,
