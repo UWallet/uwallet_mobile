@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 107:
+/***/ 108:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,11 +13,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 107;
+webpackEmptyAsyncContext.id = 108;
 
 /***/ }),
 
-/***/ 149:
+/***/ 150:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -30,11 +30,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 149;
+webpackEmptyAsyncContext.id = 150;
 
 /***/ }),
 
-/***/ 194:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60,7 +60,7 @@ var TransaccionesPage = (function () {
 }());
 TransaccionesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-transacciones',template:/*ion-inline-start:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\transacciones\transacciones.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons start>\n\n      <button ion-button icon-left>\n\n        <ion-icon name="albums"></ion-icon>\n\n        UWallet\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>\n\n      Transacciones\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page2"></ion-content>'/*ion-inline-end:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\transacciones\transacciones.html"*/
+        selector: 'page-transacciones',template:/*ion-inline-start:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/transacciones/transacciones.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-buttons start>\n      <button ion-button icon-left>\n        <ion-icon name="albums"></ion-icon>\n        UWallet\n      </button>\n    </ion-buttons>\n    <ion-title>\n      Transacciones\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page2"></ion-content>'/*ion-inline-end:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/transacciones/transacciones.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], TransaccionesPage);
@@ -69,7 +69,7 @@ TransaccionesPage = __decorate([
 
 /***/ }),
 
-/***/ 195:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -95,7 +95,7 @@ var PendientesPage = (function () {
 }());
 PendientesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-pendientes',template:/*ion-inline-start:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\pendientes\pendientes.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons start>\n\n      <button ion-button icon-left>\n\n        <ion-icon name="albums"></ion-icon>\n\n        UWallet\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>\n\n      Pendientes\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page3"></ion-content>'/*ion-inline-end:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\pendientes\pendientes.html"*/
+        selector: 'page-pendientes',template:/*ion-inline-start:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/pendientes/pendientes.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-buttons start>\n      <button ion-button icon-left>\n        <ion-icon name="albums"></ion-icon>\n        UWallet\n      </button>\n    </ion-buttons>\n    <ion-title>\n      Pendientes\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page3"></ion-content>'/*ion-inline-end:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/pendientes/pendientes.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], PendientesPage);
@@ -104,7 +104,7 @@ PendientesPage = __decorate([
 
 /***/ }),
 
-/***/ 196:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -130,7 +130,7 @@ var MiPerfilPage = (function () {
 }());
 MiPerfilPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-mi-perfil',template:/*ion-inline-start:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\mi-perfil\mi-perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Mi Perfil\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page6">\n  <div id="miPerfil-markdown11" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Nombre:\n    </p>\n  </div>\n  <div id="miPerfil-markdown13" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Correo:\n    </p>\n  </div>\n  <div id="miPerfil-markdown14" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Dinero:\n    </p>\n  </div>\n  <div id="miPerfil-markdown17" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Tarjetas:\n    </p>\n  </div>\n  <ion-list id="miPerfil-list6">\n    <ion-item color="none" id="miPerfil-list-item13">\n      Item 1\n    </ion-item>\n    <ion-item color="none" id="miPerfil-list-item14">\n      Item 2\n    </ion-item>\n    <ion-item color="none" id="miPerfil-list-item15">\n      Item 3\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\mi-perfil\mi-perfil.html"*/
+        selector: 'page-mi-perfil',template:/*ion-inline-start:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/mi-perfil/mi-perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Mi Perfil\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page6">\n  <div id="miPerfil-markdown11" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Nombre:\n    </p>\n  </div>\n  <div id="miPerfil-markdown13" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Correo:\n    </p>\n  </div>\n  <div id="miPerfil-markdown14" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Dinero:\n    </p>\n  </div>\n  <div id="miPerfil-markdown17" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Tarjetas:\n    </p>\n  </div>\n  <ion-list id="miPerfil-list6">\n    <ion-item color="none" id="miPerfil-list-item13">\n      Item 1\n    </ion-item>\n    <ion-item color="none" id="miPerfil-list-item14">\n      Item 2\n    </ion-item>\n    <ion-item color="none" id="miPerfil-list-item15">\n      Item 3\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/mi-perfil/mi-perfil.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], MiPerfilPage);
@@ -139,17 +139,17 @@ MiPerfilPage = __decorate([
 
 /***/ }),
 
-/***/ 197:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_CreditCard__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest_userService__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -167,10 +167,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 //import { CreditCardsService } from '../../providers/rest/CreditCardsService';
 
 var LoginPage = (function () {
-    function LoginPage(navCtrl, rest) {
+    function LoginPage(formBuilder, navCtrl, rest) {
+        this.formBuilder = formBuilder;
         this.navCtrl = navCtrl;
         this.rest = rest;
-        this.creditCardToCreate = new __WEBPACK_IMPORTED_MODULE_5__models_CreditCard__["a" /* CreditCard */]('3224444444444444', 40000, 5, 2030);
+        this.user = {
+            email: '',
+            password: ''
+        };
+        this.submitAttempt = false;
+        this.loginForm = formBuilder.group({
+            email: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].email, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required])],
+            password: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required]
+        });
     }
     LoginPage.prototype.goToSignup = function (params) {
         if (!params)
@@ -183,33 +192,35 @@ var LoginPage = (function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
     };
     LoginPage.prototype.ionViewDidLoad = function () {
-        this.createCardPrueba();
+        //  this.createCardPrueba()
     };
-    LoginPage.prototype.createCardPrueba = function () {
+    LoginPage.prototype.login = function () {
         var _this = this;
-        this.rest.CreateCard(this.creditCardToCreate)
-            .subscribe(function (CreditCard) { return _this.creditCardToCreate; }, function (error) { return _this.errorMessage = error; });
-    };
-    LoginPage.prototype.pruebamagica = function () {
-        var _this = this;
-        this.rest.pruebamagica()
-            .subscribe(function (error) { return _this.errorMessage = error; });
+        this.submitAttempt = true;
+        if (this.loginForm.valid) {
+            var email = this.user.email;
+            var password = this.user.password;
+            this.rest.Login(email, password)
+                .subscribe(function (res) { return _this.token = res.auth_token; }, function (error) { return _this.errorMessage = error; }, function () {
+                window.localStorage.setItem("token", _this.token);
+                _this.goToHome(null);
+            });
+        }
     };
     return LoginPage;
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\login\login.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Login\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page4">\n\n  <form id="login-form1">\n\n    <ion-list id="login-list2">\n\n      <ion-item id="login-input1">\n\n        <ion-label>\n\n          Email\n\n        </ion-label>\n\n        <ion-input type="email" placeholder=""></ion-input>\n\n      </ion-item>\n\n      <ion-item id="login-input2">\n\n        <ion-label>\n\n          Password\n\n        </ion-label>\n\n        <ion-input type="password" placeholder=""></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <div class="spacer" style="height:40px;" id="login-spacer1"></div>\n\n    <button id="login-button1" ion-button color="stable" block on-click="goToHome()">\n\n      Log in\n\n    </button>\n\n    <button id="login-button2" ion-button clear color="positive" block on-click="goToSignup()">\n\n      Or create an account\n\n    </button>\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\login\login.html"*/
+        selector: 'page-login',template:/*ion-inline-start:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Login\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page4">\n  <form  [formGroup]="loginForm"  id="login-form1" >\n    <ion-list id="login-list2" >\n      <ion-item id="login-email">\n        <ion-label floating>\n          Email\n        </ion-label>\n        <ion-input type="email" name="email" required [(ngModel)]="user.email"  formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)"></ion-input>\n      </ion-item>\n\n      <ion-item no-lines *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">\n                <p style="color:red;">Ingrese un email valido</p>\n      </ion-item>\n\n      <ion-item no-lines id="login-pass" class="item-borderless">\n        <ion-label floating>\n          Password\n        </ion-label>\n        <ion-input type="password" name="password" required [(ngModel)]="user.password" ngControl="password" formControlName="password" [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)"></ion-input>\n      </ion-item>\n\n      <ion-item no-lines *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">\n                <p style="color:red;">No ingresó la contraseña</p>\n      </ion-item>\n\n    </ion-list>\n    <div class="spacer" style="height:40px;" id="login-spacer1" no-lines></div>\n    <ion-item no-lines *ngIf="unautorized">\n              <p style="color:red;">Email o contraseña incorrectos</p>\n    </ion-item>\n    <button id="login-button1" ion-button color="stable" block (click)="login()">\n      Log in\n    </button>\n    <button id="login-button2" ion-button clear color="positive" block on-click="goToSignup">\n      Or create an account\n    </button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/login/login.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__["a" /* RestProvider */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__providers_rest_userService__["a" /* UserService */]])
 ], LoginPage);
 
-var _a, _b;
 //# sourceMappingURL=login.js.map
 
 /***/ }),
 
-/***/ 198:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -235,7 +246,7 @@ var SignupPage = (function () {
 }());
 SignupPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-signup',template:/*ion-inline-start:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\signup\signup.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      Signup\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page5">\n\n  <form id="signup-form2">\n\n    <ion-list id="signup-list3">\n\n      <ion-item id="signup-input4">\n\n        <ion-label>\n\n          Email\n\n        </ion-label>\n\n        <ion-input type="email" placeholder=""></ion-input>\n\n      </ion-item>\n\n      <ion-item id="signup-input3">\n\n        <ion-label>\n\n          FirstName\n\n        </ion-label>\n\n        <ion-input type="text" placeholder=""></ion-input>\n\n      </ion-item>\n\n      <ion-item id="signup-input6">\n\n        <ion-label>\n\n          LastName\n\n        </ion-label>\n\n        <ion-input type="text" placeholder=""></ion-input>\n\n      </ion-item>\n\n      <ion-item id="signup-input5">\n\n        <ion-label>\n\n          Password\n\n        </ion-label>\n\n        <ion-input type="password" placeholder=""></ion-input>\n\n      </ion-item>\n\n      <ion-item id="signup-input7">\n\n        <ion-label>\n\n          ConfirmPassword\n\n        </ion-label>\n\n        <ion-input type="password" placeholder=""></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <div class="spacer" style="width:287px;height:35px;" id="signup-spacer2"></div>\n\n    <button id="signup-button3" ion-button color="stable" block>\n\n      Sign up\n\n    </button>\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\signup\signup.html"*/
+        selector: 'page-signup',template:/*ion-inline-start:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/signup/signup.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Signup\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page5">\n  <form id="signup-form2">\n    <ion-list id="signup-list3">\n      <ion-item id="signup-input4">\n        <ion-label>\n          Email\n        </ion-label>\n        <ion-input type="email" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="signup-input3">\n        <ion-label>\n          FirstName\n        </ion-label>\n        <ion-input type="text" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="signup-input6">\n        <ion-label>\n          LastName\n        </ion-label>\n        <ion-input type="text" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="signup-input5">\n        <ion-label>\n          Password\n        </ion-label>\n        <ion-input type="password" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="signup-input7">\n        <ion-label>\n          ConfirmPassword\n        </ion-label>\n        <ion-input type="password" placeholder=""></ion-input>\n      </ion-item>\n    </ion-list>\n    <div class="spacer" style="width:287px;height:35px;" id="signup-spacer2"></div>\n    <button id="signup-button3" ion-button color="stable" block>\n      Sign up\n    </button>\n  </form>\n</ion-content>'/*ion-inline-end:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/signup/signup.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], SignupPage);
@@ -244,7 +255,7 @@ SignupPage = __decorate([
 
 /***/ }),
 
-/***/ 199:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -266,11 +277,14 @@ var HomePage = (function () {
     function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
     }
+    HomePage.prototype.ionViewDidLoad = function () {
+        console.log("Estoy en home, la token es:", localStorage.getItem("token"));
+    };
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n\n    <button ion-button menuToggle icon-right>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons start>\n\n      <button ion-button icon-left>\n\n        <ion-icon name="albums"></ion-icon>\n\n        UWallet\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>\n\n      Home\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page1"></ion-content>\n\n'/*ion-inline-end:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\home\home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar hideBackButton="true">\n    <button ion-button menuToggle icon-right>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-buttons start>\n      <button ion-button icon-left>\n        <ion-icon name="albums" ></ion-icon>\n        UWallet\n      </button>\n    </ion-buttons>\n    <ion-title>\n      Home\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page1"></ion-content>\n'/*ion-inline-end:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], HomePage);
@@ -279,20 +293,20 @@ HomePage = __decorate([
 
 /***/ }),
 
-/***/ 200:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RestProvider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -309,43 +323,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/*
-  Generated class for the RestProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var RestProvider = (function () {
-    function RestProvider(http) {
+var UserService = (function () {
+    function UserService(http) {
         this.http = http;
-        this.apiUrl = 'http://192.168.99.102:3001/users/get_money?id=1';
-        console.log('Hello RestProvider Provider');
+        this.apiUrl = 'http://192.168.99.101:4000';
     }
-    RestProvider.prototype.pruebamagica = function () {
-        return this.http.get(this.apiUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
-    };
-    RestProvider.prototype.CreateCard = function (creditCard) {
+    UserService.prototype.Login = function (email, password) {
         var _this = this;
-        var body = JSON.stringify(creditCard);
-        console.log(body);
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json', 'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE1MDgwMDkwMjksImlzcyI6IndhbGxldCIsImF1ZCI6ImNsaWVudCJ9.GgGk-he-xDKTR-3dgHb2-PSUl8fEgiPPFwyFWRgEt0g' });
+        var body = JSON.stringify({ email: email,
+            password: password
+        });
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        return this.http.post(('http://192.168.99.102:4000/credit_cards/registercard'), body, options)
+        return this.http.post((this.apiUrl + '/users/login'), body, options)
             .map(function (res) {
-            if (res.status === 201) {
-                _this.extractData;
+            if (res.status != 500) {
+                _this.extractData(res);
             }
+            return res.json();
         })
             .catch(this.handleError);
     };
-    RestProvider.prototype.extractData = function (res) {
+    UserService.prototype.extractData = function (res) {
         var body = res.json();
-        console.log(body);
+        //console.log(body);
         return body || {};
     };
-    RestProvider.prototype.handleError = function (error) {
+    UserService.prototype.handleError = function (error) {
         var errMsg;
         if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* Response */]) {
             var body = error.json() || '';
@@ -358,25 +362,24 @@ var RestProvider = (function () {
         console.error(errMsg);
         return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(errMsg);
     };
-    return RestProvider;
+    return UserService;
 }());
-RestProvider = __decorate([
+UserService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], RestProvider);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+], UserService);
 
-var _a;
-//# sourceMappingURL=rest.js.map
+//# sourceMappingURL=userService.js.map
 
 /***/ }),
 
-/***/ 202:
+/***/ 205:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(224);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -384,7 +387,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 221:
+/***/ 224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -392,24 +395,26 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_transacciones_transacciones__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_pendientes_pendientes__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signup_signup__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_mi_perfil_mi_perfil__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_extractos_extractos__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_http__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_rest_rest__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_transacciones_transacciones__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_pendientes_pendientes__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signup_signup__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_mi_perfil_mi_perfil__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_extractos_extractos__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_http__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_rest_rest__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_rest_userService__ = __webpack_require__(201);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -464,7 +469,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__["a" /* SplashScreen */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
-            __WEBPACK_IMPORTED_MODULE_14__providers_rest_rest__["a" /* RestProvider */]
+            __WEBPACK_IMPORTED_MODULE_14__providers_rest_rest__["a" /* RestProvider */],
+            __WEBPACK_IMPORTED_MODULE_15__providers_rest_userService__["a" /* UserService */]
         ]
     })
 ], AppModule);
@@ -473,19 +479,19 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 261:
+/***/ 264:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_transacciones_transacciones__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pendientes_pendientes__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_mi_perfil_mi_perfil__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_transacciones_transacciones__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pendientes_pendientes__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_mi_perfil_mi_perfil__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(198);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -535,7 +541,7 @@ __decorate([
     __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */])
 ], MyApp.prototype, "navCtrl", void 0);
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\app\app.html"*/'<ion-menu [content]="mainContent">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>\n\n        Menu\n\n      </ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n  <ion-content id="side-menu21">\n\n    <ion-list id="menu-list1">\n\n      <ion-item color="none" menuClose="" on-click="goToMiPerfil()" id="menu-list-item1">\n\n        PERFIL ACA\n\n      </ion-item>\n\n      <ion-item color="none" menuClose="" on-click="goToTransacciones()" id="menu-list-item2">\n\n        Transacciones\n\n      </ion-item>\n\n      <ion-item color="none" menuClose="" on-click="goToPendientes()" id="menu-list-item3">\n\n        Pagos Pendientes\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav #mainContent [root]="rootPage"></ion-nav>'/*ion-inline-end:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\app\app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/app/app.html"*/'<ion-menu [content]="mainContent" side="left" id="menu">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Menu\n      </ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content id="side-menu21">\n    <ion-list id="menu-list1">\n      <ion-item color="none" menuClose="" on-click="goToMiPerfil()" id="menu-list-item1">\n        PERFIL ACA\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="goToTransacciones()" id="menu-list-item2">\n        Transacciones\n      </ion-item>\n      <ion-item color="none" menuClose="" on-click="goToPendientes()" id="menu-list-item3">\n        Pagos Pendientes\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n<ion-nav #mainContent [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
@@ -545,25 +551,6 @@ MyApp = __decorate([
 /***/ }),
 
 /***/ 273:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreditCard; });
-var CreditCard = (function () {
-    function CreditCard(number, amount, expiration_month, expiration_year) {
-        this.number = number;
-        this.amount = amount;
-        this.expiration_month = expiration_month;
-        this.expiration_year = expiration_year;
-    }
-    return CreditCard;
-}());
-
-//# sourceMappingURL=CreditCard.js.map
-
-/***/ }),
-
-/***/ 274:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -589,14 +576,79 @@ var ExtractosPage = (function () {
 }());
 ExtractosPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-extractos',template:/*ion-inline-start:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\extractos\extractos.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Extractos\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page7">\n  <div id="extractos-markdown9" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Ingrese la fecha de inicio y la fecha final para poder generar los extractos de su cuenta\n    </p>\n  </div>\n  <div id="extractos-markdown8" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Fecha de Inicio\n    </p>\n  </div>\n  <form id="extractos-form3">\n    <ion-item id="extractos-input8">\n      <ion-label>\n        Día\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="extractos-input9">\n      <ion-label>\n        Mes\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="extractos-input10">\n      <ion-label>\n        Año\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n  </form>\n  <div id="extractos-markdown10" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Fecha Final\n    </p>\n  </div>\n  <form id="extractos-form4">\n    <ion-item id="extractos-input11">\n      <ion-label>\n        Día\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="extractos-input12">\n      <ion-label>\n        Mes\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="extractos-input13">\n      <ion-label>\n        Año\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <button id="extractos-button5" ion-button color="positive" block>\n      Descargar\n    </button>\n    <div id="extractos-markdown12" style="text-align:center;" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        ó\n      </p>\n    </div>\n    <button id="extractos-button6" ion-button color="positive" block>\n      Enviar al correo\n    </button>\n  </form>\n</ion-content>'/*ion-inline-end:"C:\Users\Pc\Proyectos\arquitectura\wallet\uwallet_mobile\src\pages\extractos\extractos.html"*/
+        selector: 'page-extractos',template:/*ion-inline-start:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/extractos/extractos.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Extractos\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page7">\n  <div id="extractos-markdown9" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Ingrese la fecha de inicio y la fecha final para poder generar los extractos de su cuenta\n    </p>\n  </div>\n  <div id="extractos-markdown8" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Fecha de Inicio\n    </p>\n  </div>\n  <form id="extractos-form3">\n    <ion-item id="extractos-input8">\n      <ion-label>\n        Día\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="extractos-input9">\n      <ion-label>\n        Mes\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="extractos-input10">\n      <ion-label>\n        Año\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n  </form>\n  <div id="extractos-markdown10" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Fecha Final\n    </p>\n  </div>\n  <form id="extractos-form4">\n    <ion-item id="extractos-input11">\n      <ion-label>\n        Día\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="extractos-input12">\n      <ion-label>\n        Mes\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="extractos-input13">\n      <ion-label>\n        Año\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <button id="extractos-button5" ion-button color="positive" block>\n      Descargar\n    </button>\n    <div id="extractos-markdown12" style="text-align:center;" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        ó\n      </p>\n    </div>\n    <button id="extractos-button6" ion-button color="positive" block>\n      Enviar al correo\n    </button>\n  </form>\n</ion-content>'/*ion-inline-end:"/home/luisvalderrama/Universidad/Arquitectura/UWallet/uwallet_mobile/src/pages/extractos/extractos.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], ExtractosPage);
 
 //# sourceMappingURL=extractos.js.map
 
+/***/ }),
+
+/***/ 274:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RestProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var RestProvider = (function () {
+    function RestProvider(http) {
+        this.http = http;
+        this.apiUrl = 'http://192.168.99.101:4000';
+        console.log('Hello RestProvider Provider');
+    }
+    RestProvider.prototype.extractData = function (res) {
+        var body = res.json();
+        //console.log(body);
+        return body || {};
+    };
+    RestProvider.prototype.handleError = function (error) {
+        var errMsg;
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* Response */]) {
+            var body = error.json() || '';
+            var err = body.error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(errMsg);
+    };
+    return RestProvider;
+}());
+RestProvider = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+], RestProvider);
+
+//# sourceMappingURL=rest.js.map
+
 /***/ })
 
-},[202]);
+},[205]);
 //# sourceMappingURL=main.js.map

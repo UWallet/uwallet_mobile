@@ -25511,3 +25511,7 @@ ion-navbar.toolbar {
   height: calc(46px + constant(safe-area-inset-top));
   min-height: calc(46px + constant(safe-area-inset-top));
 }
+
+.scroll-content {
+  overflow-y: auto !important;
+}

@@ -5,44 +5,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
-import {CreditCard} from '../../models/CreditCard';
-/*
-  Generated class for the RestProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class RestProvider {
-  private apiUrl = 'http://192.168.99.102:3001/users/get_money?id=1';
+  private apiUrl = 'http://192.168.99.101:4000';
   constructor(public http: Http) {
     console.log('Hello RestProvider Provider');
   }
-  pruebamagica(): Observable<string[]> {
-  return this.http.get(this.apiUrl)
-                  .map(this.extractData)
-                  .catch(this.handleError);
-}
 
-
-CreateCard(creditCard: CreditCard) {
-      let body = JSON.stringify( creditCard);
-      console.log(body);
-      let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE1MDgwMDkwMjksImlzcyI6IndhbGxldCIsImF1ZCI6ImNsaWVudCJ9.GgGk-he-xDKTR-3dgHb2-PSUl8fEgiPPFwyFWRgEt0g'});
-      let options = new RequestOptions({ headers: headers });
-      return this.http.post(('http://192.168.99.102:4000/credit_cards/registercard'), body, options)
-          .map((res: Response) => {
-            if (res.status===201) {
-              this.extractData;
-            }
-          })
-          .catch(this.handleError);
-  }
 
 
 private extractData(res: Response) {
   let body = res.json();
-  console.log(body);
+  //console.log(body);
   return body || { };
 }
   private handleError (error: Response | any) {

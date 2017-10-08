@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController  } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 
 @Component({
@@ -8,7 +8,10 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private menu: MenuController, public navCtrl: NavController) {
   }
-
+  ionViewDidLoad() {
+  this.menu.swipeEnable(false, 'menu');
+  console.log("Estoy en home, la token es:",localStorage.getItem("token"));
+  }
 }

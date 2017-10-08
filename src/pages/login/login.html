@@ -6,26 +6,39 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page4">
-  <form id="login-form1">
-    <ion-list id="login-list2">
-      <ion-item id="login-input1">
-        <ion-label>
+  <form  [formGroup]="loginForm"  id="login-form1" >
+    <ion-list id="login-list2" >
+      <ion-item id="login-email">
+        <ion-label floating>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="email" name="email" required [(ngModel)]="user.email"  formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)"></ion-input>
       </ion-item>
-      <ion-item id="login-input2">
-        <ion-label>
+
+      <ion-item no-lines *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">
+                <p style="color:red;">Ingrese un email valido</p>
+      </ion-item>
+
+      <ion-item no-lines id="login-pass" class="item-borderless">
+        <ion-label floating>
           Password
         </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
+        <ion-input type="password" name="password" required [(ngModel)]="user.password" ngControl="password" formControlName="password" [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)"></ion-input>
       </ion-item>
+
+      <ion-item no-lines *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
+                <p style="color:red;">No ingresó la contraseña</p>
+      </ion-item>
+
     </ion-list>
-    <div class="spacer" style="height:40px;" id="login-spacer1"></div>
-    <button id="login-button1" ion-button color="stable" block on-click="goToHome()">
+    <div class="spacer" style="height:40px;" id="login-spacer1" no-lines></div>
+    <ion-item no-lines *ngIf="unautorized">
+              <p style="color:red;">Email o contraseña incorrectos</p>
+    </ion-item>
+    <button id="login-button1" ion-button color="stable" block (click)="login()">
       Log in
     </button>
-    <button id="login-button2" ion-button clear color="positive" block on-click="goToSignup()">
+    <button id="login-button2" ion-button clear color="positive" block on-click="goToSignup">
       Or create an account
     </button>
   </form>
