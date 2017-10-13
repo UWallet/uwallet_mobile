@@ -14,4 +14,39 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page2"></ion-content>
+<ion-content padding id="page2">
+  <h1 id="transacciones-heading1" style="color:#000000;text-align:center;">
+    Enviar dinero
+  </h1>
+  <form [formGroup]="validations_form" id="transacciones-form6">
+    <ion-item id="transacciones-input16">
+      <ion-label stacked>
+        Monto
+      </ion-label>
+      <ion-input type="number" required [(ngModel)]="monto"  formControlName="monto"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <li *ngFor="let validation of validation_messages.monto">
+        <ion-item  text-wrap no-lines class="error-message" *ngIf="validations_form.get('monto').hasError(validation.type) && (validations_form.get('monto').dirty || validations_form.get('monto').touched || submitAttempt)">
+          <p style="color:red;"> {{ validation.message }}</p>
+        </ion-item>
+      </li>
+    </div>
+    <ion-item id="transacciones-input17">
+      <ion-label stacked>
+        Numero de Cuenta destino
+      </ion-label>
+      <ion-input type="text" required [(ngModel)]="target"  formControlName="target"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <li *ngFor="let validation of validation_messages.target">
+        <ion-item  text-wrap no-lines class="error-message" *ngIf="validations_form.get('target').hasError(validation.type) && (validations_form.get('target').dirty || validations_form.get('target').touched || submitAttempt)">
+          <p style="color:red;"> {{ validation.message }}</p>
+        </ion-item>
+      </li>
+    </div>
+  </form>
+  <button id="transacciones-button11" ion-button color="balanced" block style="color:#FFFFFF;border-radius:-1px -1px -1px -1px;" (click)="makeTransaction()">
+    Enviar
+  </button>
+</ion-content>
