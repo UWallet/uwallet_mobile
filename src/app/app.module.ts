@@ -16,6 +16,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 import { UserService } from '../providers/rest/userService';
+import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { UserService } from '../providers/rest/userService';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
-    UserService
+    UserService,
+    ProfileServiceProvider
   ]
 })
 export class AppModule {}

@@ -1,11 +1,8 @@
 <ion-header>
-  <ion-navbar hideBackButton="true">
-    <button ion-button menuToggle icon-right>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar>
     <ion-buttons start>
       <button ion-button icon-left>
-        <ion-icon name="albums" ></ion-icon>
+        <ion-icon name="albums"></ion-icon>
         UWallet
       </button>
     </ion-buttons>
@@ -14,4 +11,16 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page1"></ion-content>
+<ion-content padding id="page1">
+  <div id="home-container1">
+    <button id="home-button8" ion-button color="positive" block on-click="goToTransacciones()">
+      Realizar Transferencia
+    </button>
+    <button id="home-button9" ion-button color="positive" block on-click="goToPendientes()">
+      Pagos pendientes
+    </button>
+    <button id="home-button10" ion-button color="positive" block on-click="goToExtractos()">
+      Generar Extracto
+    </button>
+  </div>
+</ion-content>

@@ -8,7 +8,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class UserService {
-  private apiUrl = 'http://192.168.99.101:4000';
+  private apiUrl = 'http://192.168.99.102:4000';
   constructor(public http: Http) {
 
   }
