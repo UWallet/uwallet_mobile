@@ -4,46 +4,55 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+import {User} from '../../models/User';
 
 
 @Injectable()
 export class UserService {
-  private apiUrl = 'http://192.168.99.101:4000';
+  private apiUrl = 'http://192.168.99.101:4000/users';
   constructor(public http: Http) {
 
   }
-  Login(email: string, password: string){
+
+
+  login(email: string, password: string){
     let body = JSON.stringify(
       {email: email,
       password: password
      });
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
-    return this.http.post((this.apiUrl+'/users/login'), body, options)
+    return this.http.post((this.apiUrl+'/login'), body, options)
         .map((res: Response) => {
-          if (res.status!=500) {
-            this.extractData(res);
-          }
-        return res.json();
+            return this.extractData(res);
+      },
+      (error: Response) =>{
+        return error.json();
       })
-}
+  }
 
-private extractData(res: Response) {
-  let body = res.json();
-  //console.log(body);
-  return body || { };
-}
-  private handleError (error: Response | any) {
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
+  register(User: User){
+    let body = JSON.stringify(
+      {
+        user: User
+      });
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post((this.apiUrl+'/register'), body, options)
+        .map((res: Response) => {
+            return this.extractData(res);
+      },
+      (error: Response) =>{
+        return error.json();
+      })
+  }
+
+  private extractData(res: Response) {
+    if (res.status == 201){
+      return { }
     }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
+    let body = res.json();
+    return body || { };
   }
 
 }
