@@ -5,6 +5,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import {CreditCard} from '../../models/CreditCard';
+import {CardToTransfer} from '../../models/CreditCard';
+
 /*
   Generated class for the ProfileServiceProvider provider.
 
@@ -55,6 +57,18 @@ export class ProfileServiceProvider {
           })
           .catch(this.handleError);
       }
+      TransferFromCardCard(cardToTransfer: CardToTransfer) {
+            let body = JSON.stringify( cardToTransfer);
+            let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+            let options = new RequestOptions({ headers: headers });
+            return this.http.post((this.apiUrl+'/credit_cards/transfer_money_from_card'), body, options)
+                .map((res: Response) => {
+                  if (res.status===200) {
+                    this.extractData;
+                  }
+                })
+                .catch(this.handleError);
+        }
 
 private extractData(res: Response) {
   let body = res.json();

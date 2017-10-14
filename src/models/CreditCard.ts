@@ -6,3 +6,10 @@ export class CreditCard {
         public expiration_year: number
        ) {}
 }
+
+export class CardToTransfer {
+    constructor(
+        public cardId: number,
+        public money: number
+       ) {}
+}

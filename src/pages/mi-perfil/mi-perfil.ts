@@ -5,6 +5,7 @@ import { ProfileServiceProvider } from '../../providers/profile-service/profile-
 import { UserConId } from '../../models/User';
 import { AlertController } from 'ionic-angular';
 import { CreditCard } from '../../models/CreditCard';
+import { CardToTransfer } from '../../models/CreditCard';
 
 @Component({
   selector: 'page-mi-perfil',
@@ -15,7 +16,9 @@ export class MiPerfilPage {
   CreditCardsUser;
   user = new UserConId(0, '', '', '',0);
   creditCardToCreate = new CreditCard('0', 0, 0,0);
+  creditCardToTransfer = new CardToTransfer (0, 0);
 
+  cond: boolean;
   errorMessage: string;
   //testRadioOpen: boolean;
   testRadioResult;
@@ -111,7 +114,7 @@ export class MiPerfilPage {
       text: 'OK',
       handler: data => {
         //this.testRadioOpen = false;
-        console.log(data);
+        //console.log(data);
         this.rest.DeleteCard(data)
             .subscribe(
                 error => this.errorMessage = <any>error);
@@ -121,6 +124,103 @@ export class MiPerfilPage {
     this.RenderUserInfo();
     alert.present();
   }
+
+
+  TransferFromCard() {
+
+    let prompt = this.alertCtrl.create({
+      title: 'Cargar dinero a tu cuenta',
+      message: "Ingresa el numero de tarjeta y el monto a transferir",
+      inputs: [
+        {
+          name: 'NoCard',
+          placeholder: 'No. tarjeta'
+        },
+        {
+          name: 'money',
+          placeholder: 'monto'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            //console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+
+            this.cond= false;
+            for (var i = 0; i < this.CreditCardsUser.length; i++) {
+              //console.log(this.CreditCardsUser[i].number);
+              //console.log(data.Nocard);
+
+              if(0==(this.CreditCardsUser[i].number.localeCompare(String(data.NoCard)))){
+                this.creditCardToTransfer.cardId=parseInt(this.CreditCardsUser[i].id);
+                this.creditCardToTransfer.money=parseInt(data.money);
+                this.cond= true;
+                //this.VerifyPass();
+                this.rest.TransferFromCardCard(this.creditCardToTransfer)
+                    .subscribe(
+                        CreditCard => this.creditCardToTransfer,
+                        error => this.errorMessage = <any>error);
+                this.RenderUserInfo();
+
+              }
+            }
+            if (this.cond==false){
+              console.log("la tarjeta especificada esta fuera de su dominio");
+              //hacer que lo imprima en la aplicacion
+            }
+            //console.log(data);
+
+          }
+
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+/*
+  VerifyPass() {
+      let prompt = this.alertCtrl.create({
+        title: 'Login',
+        message: "Ingrese su contraseña",
+        cssClass: 'alert-warning',
+        inputs: [
+          {
+            name: 'contraseña',
+            placeholder: 'Contraseña',
+            type: "password"
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancelar'
+          },
+          {
+            text: 'Enviar',
+            handler: data => {
+              this.rest.verifyPass(data.contraseña)
+                .subscribe(
+                  res => this.res = res,
+                  error => {this.errorMessage = <any>error;
+                   this.handleError(error);
+                  },
+                  () => {
+                    this.makeTransaction();
+                  }
+                )
+            }
+          }
+        ]
+      });
+      prompt.present();
+
+  }*/
 
 
 }

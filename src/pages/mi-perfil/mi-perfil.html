@@ -26,7 +26,7 @@
   </div>
   <div id="miPerfil-markdown14" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-      Dinero: {{user.money}}
+      Dinero: $ {{user.money}}
     </p>
   </div>
   <div id="miPerfil-markdown17" class="show-list-numbers-and-dots">
@@ -42,6 +42,7 @@
     </ion-item>
 
   </ion-list>
+   <button ion-button color="primary"  block (click)="TransferFromCard()">transferir</button>
    <button ion-button style="background-color:green " color="primary"  block (click)="addCard()">Añadir tarjeta</button>
-   <button ion-button style="background-color:red "    block (click)="deletecard()">Borrar tarjeta</button>
+   <button ion-button style="background-color:red "    block (click)="deletecard()">Borrar tarjeta</button> 
 </ion-content>
