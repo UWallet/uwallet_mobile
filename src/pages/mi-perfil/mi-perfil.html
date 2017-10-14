@@ -35,14 +35,13 @@
     </p>
   </div>
   <ion-list id="miPerfil-list6">
-    <ion-item color="none" id="miPerfil-list-item13">
-      Item 1
+    <ion-item color="none" *ngFor="let card of CreditCardsUser">
+      <h3>No. {{card.number}} </h3>
+      <p>Dinero en tarjeta: {{card.amount}}</p>
+      <p>Fecha Expiracion: {{card.expiration_month}} {{card.expiration_year}}</p>
     </ion-item>
-    <ion-item color="none" id="miPerfil-list-item14">
-      Item 2
-    </ion-item>
-    <ion-item color="none" id="miPerfil-list-item15">
-      Item 3
-    </ion-item>
+
   </ion-list>
+   <button ion-button style="background-color:green " color="primary"  block (click)="addCard()">Añadir tarjeta</button>
+   <button ion-button style="background-color:red "    block (click)="deletecard()">Borrar tarjeta</button>
 </ion-content>

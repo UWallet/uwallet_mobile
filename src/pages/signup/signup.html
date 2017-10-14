@@ -1,50 +1,89 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>
-      Signup
+      Registro
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page5">
-  <form id="signup-form2">
+  <form [formGroup]="validations_form" id="signup-form2">
     <ion-list id="signup-list3">
       <ion-item id="signup-input4">
-        <ion-label>
+        <ion-label floating>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input (ngModelChange)="emailError=false" type="email" email required [(ngModel)]="user.email"  formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item no-lines text-wrap *ngIf="!validations_form.controls.email.valid  && (validations_form.controls.email.dirty || submitAttempt)">
+                <p style="color:red;">Ingrese un email valido</p>
+      </ion-item>
+      <ion-item no-lines text-wrap *ngIf="(emailError)">
+                <p style="color:red;">Ya existe un usuario registrado con este email</p>
       </ion-item>
       <ion-item id="signup-input3">
-        <ion-label>
-          FirstName
+        <ion-label floating>
+          Nombres
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input  (ngModelChange)="firstNameError=false" type="text" required [(ngModel)]="user.firstName"  formControlName="firstName"></ion-input>
       </ion-item>
+        <div class="validation-errors">
+          <li *ngFor="let validation of validation_messages.firstName">
+            <ion-item  text-wrap no-lines class="error-message" *ngIf="validations_form.get('firstName').hasError(validation.type) && (validations_form.get('firstName').dirty || validations_form.get('firstName').touched || submitAttempt)">
+              <p style="color:red;"> {{ validation.message }}</p>
+        		</ion-item>
+        	</li>
+          <ion-item text-wrap no-lines *ngIf="(firstNameError) && (validations_form.get('firstName').touched)">
+                    <p style="color:red;">Los nombres ingresados no son validos</p>
+          </ion-item>
+        </div>
       <ion-item id="signup-input6">
-        <ion-label>
-          LastName
+        <ion-label floating>
+          Apellidos
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input type="text" (ngModelChange)="lastNameError=false" required [(ngModel)]="user.lastName"  formControlName="lastName"></ion-input>
       </ion-item>
-      <ion-item id="signup-input5">
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
-      </ion-item>
-      <ion-item id="signup-input7">
-        <ion-label>
-          ConfirmPassword
-        </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
-      </ion-item>
+        <div class="validation-errors">
+          <li text-wrap *ngFor="let validation of validation_messages.lastName">
+            <ion-item no-lines class="error-message" *ngIf="validations_form.get('lastName').hasError(validation.type) && (validations_form.get('lastName').dirty || validations_form.get('lastName').touched || submitAttempt)">
+        			<p style="color:red;"> {{ validation.message }}</p>
+        		</ion-item>
+        	</li>
+          <ion-item text-wrap no-lines *ngIf="(lastNameError)">
+                    <p style="color:red;">Los apellidos ingresados no son validos</p>
+          </ion-item>
+        </div>
+      <form [formGroup]="matching_passwords_group" id="signup-form3">
+        <ion-item id="signup-input5">
+          <ion-label floating>
+            Contraseña
+          </ion-label>
+          <ion-input type="password" required [(ngModel)]="user.password"  formControlName="password"></ion-input>
+        </ion-item>
+          <div class="validation-errors">
+            <li *ngFor="let validation of validation_messages.password">
+              <ion-item text-wrap no-lines class="error-message" *ngIf="matching_passwords_group.get('password').hasError(validation.type) && (matching_passwords_group.get('password').dirty || matching_passwords_group.get('password').touched || submitAttempt)">
+          			<p style="color:red;"> {{ validation.message }}</p>
+          		</ion-item>
+          	</li>
+          </div>
+        <ion-item id="signup-input7">
+          <ion-label floating>
+            Confirmar Contraseña
+          </ion-label>
+          <ion-input type="password" placeholder="" required [(ngModel)]="user.password_confirmation"  formControlName="confirm_password"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <li *ngFor="let validation of validation_messages.matching_passwords">
+              <ion-item text-wrap no-lines class="error-message" *ngIf="validations_form.get('matching_passwords').hasError(validation.type) && (matching_passwords_group.get('confirm_password').dirty || matching_passwords_group.get('confirm_password').touched || submitAttempt)">
+          			<p style="color:red;"> {{ validation.message }}</p>
+          		</ion-item>
+          	</li>
+          </div>
+      </form>
     </ion-list>
     <div class="spacer" style="width:287px;height:35px;" id="signup-spacer2"></div>
-    <button id="signup-button3" ion-button color="stable" block>
-      Sign up
+    <button id="signup-button3" ion-button color="stable" block (click)="register()">
+      Registrarse
     </button>
   </form>
 </ion-content>

@@ -4,25 +4,19 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+
 import {CreditCard} from '../../models/CreditCard';
+
 /*
-  Generated class for the ProfileServiceProvider provider.
+  Generated class for the RestProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class ProfileServiceProvider {
+export class CreditCardsServiceProvider {
   private apiUrl = 'http://192.168.99.102:4000';
   constructor(public http: Http) {
-
-  }
-  GetUserInfo(): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get((this.apiUrl+ '/users/get_user'), options)
-                .map(this.extractData)
-                .catch(this.handleError);
   }
   AllCreditCardsByUser(): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
@@ -31,34 +25,24 @@ export class ProfileServiceProvider {
                 .map(this.extractData)
                 .catch(this.handleError);
   }
+
   CreateCard(creditCard: CreditCard) {
         let body = JSON.stringify( creditCard);
-        //console.log(body);
+        console.log(body);
         let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
         let options = new RequestOptions({ headers: headers });
-        return this.http.post((this.apiUrl+'/credit_cards/registercard'), body, options)
+        return this.http.post(('http://192.168.99.102:4000/credit_cards/registercard'), body, options)
             .map((res: Response) => {
-              if (res.status===200) {
+              if (res.status===201) {
                 this.extractData;
               }
             })
             .catch(this.handleError);
     }
-    DeleteCard(id) {
-          let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
-          let options = new RequestOptions({ headers: headers });
-          return this.http.delete((this.apiUrl+'/credit_cards?id='+id), options)
-          .map((res: Response) => {
-            if (res.status===201) {
-              this.extractData;
-            }
-          })
-          .catch(this.handleError);
-      }
+
 
 private extractData(res: Response) {
   let body = res.json();
-  //console.log(body);
   return body || { };
 }
   private handleError (error: Response | any) {
