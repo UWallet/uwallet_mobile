@@ -89,8 +89,9 @@ export class SignupPage {
 
   showAlert() {
   let alert = this.alertCtrl.create({
-    title: 'Registro Exitoso!',
-    subTitle: 'Se enviará un correo de confirmacion para activar tu cuenta.',
+    title: '¡Registro Exitoso!',
+    message: 'Se enviará un correo de confirmacion para activar tu cuenta.',
+    cssClass: "alert-success",
     buttons: [
       {
       text: 'OK',
@@ -110,7 +111,6 @@ export class SignupPage {
         .subscribe(
           res => this.res = res,
           error => {this.errorMessage = <any>error;
-            console.log(error)
            this.handleError(error);
           },
           () => {
@@ -125,7 +125,6 @@ export class SignupPage {
       this.emailError = false;
       this.firstNameError = false;
       this.lastNameError = false;
-      console.log(error);
     if(error.status==422){
       if (body["email"]){
         this.emailError = true;

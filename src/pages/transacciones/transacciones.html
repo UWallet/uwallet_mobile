@@ -14,7 +14,7 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page2">
+<ion-content padding id="page2" class="scroll-content">
   <h1 id="transacciones-heading1" style="color:#000000;text-align:center;">
     Enviar dinero
   </h1>
@@ -23,11 +23,11 @@
       <ion-label stacked>
         Monto
       </ion-label>
-      <ion-input type="number" required [(ngModel)]="monto"  formControlName="monto"></ion-input>
+      <ion-input type="number" required [(ngModel)]="amount"  formControlName="amount"></ion-input>
     </ion-item>
     <div class="validation-errors">
-      <li *ngFor="let validation of validation_messages.monto">
-        <ion-item  text-wrap no-lines class="error-message" *ngIf="validations_form.get('monto').hasError(validation.type) && (validations_form.get('monto').dirty || validations_form.get('monto').touched || submitAttempt)">
+      <li *ngFor="let validation of validation_messages.amount">
+        <ion-item  text-wrap no-lines class="error-message" *ngIf="validations_form.get('amount').hasError(validation.type) && (validations_form.get('amount').dirty || validations_form.get('amount').touched || submitAttempt)">
           <p style="color:red;"> {{ validation.message }}</p>
         </ion-item>
       </li>
@@ -36,7 +36,7 @@
       <ion-label stacked>
         Numero de Cuenta destino
       </ion-label>
-      <ion-input type="text" required [(ngModel)]="target"  formControlName="target"></ion-input>
+      <ion-input (ngModelChange)="userError=false" type="text" required [(ngModel)]="target"  formControlName="target"></ion-input>
     </ion-item>
     <div class="validation-errors">
       <li *ngFor="let validation of validation_messages.target">
@@ -44,9 +44,12 @@
           <p style="color:red;"> {{ validation.message }}</p>
         </ion-item>
       </li>
+      <ion-item no-lines text-wrap *ngIf="(userError)">
+                <p style="color:red;">No existe el numero de cuenta ingresado</p>
+      </ion-item>
     </div>
   </form>
-  <button id="transacciones-button11" ion-button color="balanced" block style="color:#FFFFFF;border-radius:-1px -1px -1px -1px;" (click)="makeTransaction()">
+  <button id="transacciones-button11" ion-button color="balanced" block style="color:#FFFFFF;border-radius:-1px -1px -1px -1px;" (click)="VerifyPass()">
     Enviar
   </button>
 </ion-content>

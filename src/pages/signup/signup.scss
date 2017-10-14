@@ -1,2 +1,32 @@
 page-signup {
-}
+  .scroll-content {
+   overflow-y: auto !important;
+ }
+ }
+ ion-alert {
+   &.alert-warning {
+     .alert-message {
+       overflow-y: auto;
+     }
+   }
+   &.alert-danger {
+     .alert-message {
+       overflow-y: auto;
+     }
+     .alert-head {
+       background: map-get($colors, danger);
+       color: #fff;
+       margin-bottom: 10px;
+     }
+   }
+   &.alert-success {
+     .alert-message {
+       overflow-y: auto;
+     }
+     .alert-head {
+       background: map-get($colors, success);
+       color: #fff;
+       margin-bottom: 10px;
+     }
+   }
+ }
