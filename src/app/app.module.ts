@@ -17,6 +17,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 import { UserService } from '../providers/rest/userService';
 import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
+import { TransactionService } from '../providers/rest/transactionsService';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ProfileServiceProvider } from '../providers/profile-service/profile-ser
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
     UserService,
-    ProfileServiceProvider
+    ProfileServiceProvider,
+    TransactionService
+
   ]
 })
 export class AppModule {}
