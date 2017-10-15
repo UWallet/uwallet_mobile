@@ -1,11 +1,12 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Registro
+    <ion-title align-title="center" center>
+      <img src="/assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page5" no-bounce>
+  <h1> Resgistro </h1>
   <form [formGroup]="validations_form" id="signup-form2">
     <ion-list id="signup-list3">
       <ion-item id="signup-input4">
@@ -14,12 +15,22 @@
         </ion-label>
         <ion-input (ngModelChange)="emailError=false" type="email" email required [(ngModel)]="user.email"  formControlName="email"></ion-input>
       </ion-item>
+      <div class="validation-errors">
+        <li *ngFor="let validation of validation_messages.firstName">
+          <ion-item  text-wrap no-lines class="error-message" *ngIf="validations_form.get('firstName').hasError(validation.type) && (validations_form.get('firstName').dirty || validations_form.get('firstName').touched || submitAttempt)">
+            <p style="color:red;"> {{ validation.message }}</p>
+          </ion-item>
+        </li>
+        <ion-item text-wrap no-lines *ngIf="(firstNameError) && (validations_form.get('firstName').touched)">
+                  <p style="color:red;">Los nombres ingresados no son validos</p>
+        </ion-item>
       <ion-item no-lines text-wrap *ngIf="!validations_form.controls.email.valid  && (validations_form.controls.email.dirty || submitAttempt)">
                 <p style="color:red;">Ingrese un email valido</p>
       </ion-item>
       <ion-item no-lines text-wrap *ngIf="(emailError)">
                 <p style="color:red;">Ya existe un usuario registrado con este email</p>
       </ion-item>
+    </div>
       <ion-item id="signup-input3">
         <ion-label floating>
           Nombres

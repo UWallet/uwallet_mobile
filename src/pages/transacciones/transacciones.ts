@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import { TransactionService } from '../../providers/rest/transactionsService';
 import { AlertController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-transacciones',
@@ -43,6 +44,11 @@ export class TransaccionesPage {
         Validators.pattern('\\d+')
       ]))
     });
+  }
+
+  goToHome(params){
+    if (!params) params = {};
+    this.navCtrl.push(HomePage)
   }
 
   makeTransaction(){

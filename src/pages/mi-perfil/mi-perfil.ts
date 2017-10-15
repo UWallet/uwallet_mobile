@@ -7,6 +7,7 @@ import { AlertController } from 'ionic-angular';
 import { CreditCard } from '../../models/CreditCard';
 import { CardToTransfer } from '../../models/CreditCard';
 import { TransactionService } from '../../providers/rest/transactionsService';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-mi-perfil',
@@ -29,7 +30,10 @@ export class MiPerfilPage {
   testRadioResult;
   constructor(private menu: MenuController, public navCtrl: NavController, public rest: ProfileServiceProvider, public alertCtrl: AlertController, public restTrans: TransactionService) {
   }
-
+  goToHome(params){
+    if (!params) params = {};
+    this.navCtrl.push(HomePage)
+  }
   ionViewDidLoad() {
     this.RenderUserInfo();
     this.menu.swipeEnable(true, 'menu');
@@ -60,6 +64,7 @@ export class MiPerfilPage {
     let prompt = this.alertCtrl.create({
       title: 'Vincular Tarjeta de credito',
       message: "Ingresa la infromacion de la tarjeta",
+      cssClass: "alert-warning",
       inputs: [
         {
           name: 'number',
@@ -161,6 +166,7 @@ export class MiPerfilPage {
     let prompt = this.alertCtrl.create({
       title: 'Cargar dinero a tu cuenta',
       message: "Ingresa el numero de tarjeta y el monto a transferir",
+      cssClass: "alert-warning",
       inputs: [
         {
           name: 'NoCard',

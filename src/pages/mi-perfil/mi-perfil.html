@@ -1,16 +1,23 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="back"></ion-icon>
-    </button>
+  <ion-navbar hideBackButton>
+    <ion-buttons left>
+      <button ion-button color="transparent" (click)="goToHome()">
+        <img src="/assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="doClick()">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>
       Mi Perfil
     </ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="doClick()">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
