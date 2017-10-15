@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController  } from 'ionic-angular';
 import { ProfileServiceProvider } from '../../providers/profile-service/profile-service';
 //import { CreditCardsServiceProvider } from '../../providers/profile-service/creditCardsService';
 import { UserConId } from '../../models/User';
 import { AlertController } from 'ionic-angular';
 import { CreditCard } from '../../models/CreditCard';
 import { CardToTransfer } from '../../models/CreditCard';
+import { TransactionService } from '../../providers/rest/transactionsService';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-mi-perfil',
@@ -18,15 +20,23 @@ export class MiPerfilPage {
   creditCardToCreate = new CreditCard('0', 0, 0,0);
   creditCardToTransfer = new CardToTransfer (0, 0);
 
-  cond: boolean;
+  cond=true;
   errorMessage: string;
+  res: string;
+
+  titleWindow: string;
+  messageWindow: string;
   //testRadioOpen: boolean;
   testRadioResult;
-  constructor( public navCtrl: NavController, public rest: ProfileServiceProvider, public alertCtrl: AlertController) {
+  constructor(private menu: MenuController, public navCtrl: NavController, public rest: ProfileServiceProvider, public alertCtrl: AlertController, public restTrans: TransactionService) {
   }
-
+  goToHome(params){
+    if (!params) params = {};
+    this.navCtrl.push(HomePage)
+  }
   ionViewDidLoad() {
     this.RenderUserInfo();
+    this.menu.swipeEnable(true, 'menu');
   }
   RenderUserInfo(){
     this.rest.GetUserInfo().subscribe(
@@ -53,7 +63,8 @@ export class MiPerfilPage {
   addCard() {
     let prompt = this.alertCtrl.create({
       title: 'Vincular Tarjeta de credito',
-      message: "Ingresa un numero de tarjeta",
+      message: "Ingresa la infromacion de la tarjeta",
+      cssClass: "alert-warning",
       inputs: [
         {
           name: 'number',
@@ -86,8 +97,21 @@ export class MiPerfilPage {
             this.rest.CreateCard(this.creditCardToCreate)
   				      .subscribe(
             				CreditCard => this.creditCardToCreate,
-            				error => this.errorMessage = <any>error);
-            this.RenderUserInfo();
+            				error => {this.errorMessage = <any>error
+                      console.log(error);
+                    this.handleError(error);
+                    },
+                    () => {
+                      if (this.cond==true){
+                      this.RenderUserInfo();
+                      this.titleWindow="¡tarjeta añadida con exito!";
+                      this.messageWindow="La tarjeta ha sido vinculada a tu cuenta";
+                      this.showResult();
+                    }
+                    }
+                    );
+
+
           }
 
         }
@@ -117,8 +141,19 @@ export class MiPerfilPage {
         //console.log(data);
         this.rest.DeleteCard(data)
             .subscribe(
-                error => this.errorMessage = <any>error);
-        this.RenderUserInfo();
+                error => {this.errorMessage = <any>error
+                this.handleError(error);
+                },
+                () => {
+                  if (this.cond==true){
+                  this.RenderUserInfo();
+                  this.titleWindow="¡tarjeta borrada exitosamente!";
+                  this.messageWindow="La tarjeta ha sido desvinculada a tu cuenta";
+                  this.showResult();
+                }
+                }
+                );
+
       }
     });
     this.RenderUserInfo();
@@ -131,6 +166,7 @@ export class MiPerfilPage {
     let prompt = this.alertCtrl.create({
       title: 'Cargar dinero a tu cuenta',
       message: "Ingresa el numero de tarjeta y el monto a transferir",
+      cssClass: "alert-warning",
       inputs: [
         {
           name: 'NoCard',
@@ -161,12 +197,8 @@ export class MiPerfilPage {
                 this.creditCardToTransfer.cardId=parseInt(this.CreditCardsUser[i].id);
                 this.creditCardToTransfer.money=parseInt(data.money);
                 this.cond= true;
-                //this.VerifyPass();
-                this.rest.TransferFromCardCard(this.creditCardToTransfer)
-                    .subscribe(
-                        CreditCard => this.creditCardToTransfer,
-                        error => this.errorMessage = <any>error);
-                this.RenderUserInfo();
+                this.VerifyPass();
+
 
               }
             }
@@ -184,7 +216,6 @@ export class MiPerfilPage {
     prompt.present();
   }
 
-/*
   VerifyPass() {
       let prompt = this.alertCtrl.create({
         title: 'Login',
@@ -204,14 +235,27 @@ export class MiPerfilPage {
           {
             text: 'Enviar',
             handler: data => {
-              this.rest.verifyPass(data.contraseña)
+              this.restTrans.verifyPass(data.contraseña)
                 .subscribe(
                   res => this.res = res,
                   error => {this.errorMessage = <any>error;
-                   this.handleError(error);
                   },
                   () => {
-                    this.makeTransaction();
+                    this.rest.TransferFromCardCard(this.creditCardToTransfer)
+                        .subscribe(
+                            CreditCard => this.creditCardToTransfer,
+                            error => {this.errorMessage = <any>error
+                            this.handleError(error);
+                            },
+                            () => {
+                              if (this.cond==true){
+                              this.titleWindow="Transferencia exitosa";
+                              this.messageWindow="El monto ha sido transferido de tu tarjeta a tu cuenta";
+                              this.showResult();
+                            }
+                            }
+                            );
+
                   }
                 )
             }
@@ -220,7 +264,49 @@ export class MiPerfilPage {
       });
       prompt.present();
 
-  }*/
+  }
+
+  showResult() {
+  let alert = this.alertCtrl.create({
+    title: this.titleWindow,
+    message: this.messageWindow,
+    cssClass: "alert-success",
+    buttons: [
+      {
+      text: 'OK',
+      handler: data => {
+        this.RenderUserInfo();
+        }
+      }
+    ]
+  });
+  alert.present();
+  }
+
+  private handleError (error: Response | any) {
+
+      console.log(error.status);
+    if(error.status==403){
+      this.cond=false;
+      this.titleWindow="Error";
+      this.messageWindow="La tarjeta no esta registrada en tu cuenta";
+        this.showResult();
+    }
+    if(error.status==400){
+      this.cond=false;
+      this.titleWindow="Error";
+      this.messageWindow="No tienes suficiente dinero en tu tarjeta para la transferencia";
+      this.showResult();
+    }
+    if(error.status==422){
+      console.log("hola");
+      this.cond=false;
+      this.titleWindow="Error";
+      this.messageWindow="Valores incorrectos";
+      this.showResult();
+    }
+  }
+
 
 
 }

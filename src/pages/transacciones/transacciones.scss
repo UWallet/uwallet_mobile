@@ -2,35 +2,7 @@ page-transacciones {
   li {
       list-style:none;
     }
-}
-.md,
-.ios,
-.wp {
-ion-alert {
-  &.alert-warning {
-    .alert-message {
-      overflow-y: auto;
+  Ion-title{
+          Font-size: 0.01;
     }
-  }
-  &.alert-danger {
-    .alert-message {
-      overflow-y: auto;
-    }
-    .alert-head {
-      background: map-get($colors, danger);
-      color: #fff;
-      margin-bottom: 10px;
-    }
-  }
-  &.alert-success {
-    .alert-message {
-      overflow-y: auto;
-    }
-    .alert-head {
-      background: map-get($colors, success);
-      color: #fff;
-      margin-bottom: 10px;
-    }
-  }
-}
 }
