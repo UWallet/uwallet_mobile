@@ -1,13 +1,21 @@
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="back"></ion-icon>
     </button>
     <ion-title>
       Mi Perfil
     </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="doClick()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
+
+
+
 <ion-content padding id="page6">
   <div id="miPerfil-markdown10" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
@@ -44,5 +52,5 @@
   </ion-list>
    <button ion-button color="primary"  block (click)="TransferFromCard()">transferir</button>
    <button ion-button style="background-color:green " color="primary"  block (click)="addCard()">Añadir tarjeta</button>
-   <button ion-button style="background-color:red "    block (click)="deletecard()">Borrar tarjeta</button> 
+   <button ion-button style="background-color:red "    block (click)="deletecard()">Borrar tarjeta</button>
 </ion-content>

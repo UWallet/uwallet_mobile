@@ -4,7 +4,6 @@ import { RestProvider } from '../../providers/rest/rest';
 import { ExtractosPage } from '../extractos/extractos';
 import { TransaccionesPage } from '../transacciones/transacciones';
 import { PendientesPage } from '../pendientes/pendientes';
-import { MiPerfilPage } from '../mi-perfil/mi-perfil';
 
 @Component({
   selector: 'page-home',
@@ -22,7 +21,7 @@ export class HomePage {
     this.navCtrl.push(TransaccionesPage);
   }goToPendientes(params){
     if (!params) params = {};
-    this.navCtrl.push(MiPerfilPage);
+    this.navCtrl.push(PendientesPage);
   }
 
   ionViewDidLoad() {

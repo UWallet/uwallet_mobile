@@ -1,17 +1,23 @@
 <ion-header>
   <ion-navbar hideBackButton="true">
-    <button ion-button menuToggle icon-right>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+
     <ion-buttons start>
       <button ion-button icon-left>
         <ion-icon name="albums" ></ion-icon>
         UWallet
       </button>
     </ion-buttons>
+    <button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Home
     </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="doClick()">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page1">
