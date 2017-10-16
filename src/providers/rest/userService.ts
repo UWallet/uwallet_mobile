@@ -9,7 +9,7 @@ import {User} from '../../models/User';
 
 @Injectable()
 export class UserService {
-  private apiUrl = 'http://192.168.99.101:4000/users';
+  private apiUrl = 'http://192.168.99.102:4000/users';
   constructor(public http: Http) {
 
   }

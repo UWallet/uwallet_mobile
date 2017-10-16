@@ -10,7 +10,7 @@ import {User} from '../../models/User';
 @Injectable()
 export class TransactionService {
 
-  private apiUrl = 'http://192.168.99.101:4000/';
+  private apiUrl = 'http://192.168.99.102:4000/';
   constructor(public http: Http) {
 
   }

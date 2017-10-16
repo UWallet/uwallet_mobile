@@ -5,6 +5,10 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
+//import {AngularFireDatabase } from '../../../node_modules/angularfire2/src/database/database';
+//import {FirebaseListObservable } from '../../../node_modules/angularfire2/src/database-deprecated/firebase_list_observable';
+
+
 @Injectable()
 export class RestProvider {
   private apiUrl = 'http://192.168.99.102:4000';

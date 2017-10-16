@@ -1,6 +1,14 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+  <ion-navbar hideBackButton>
+    <ion-buttons left>
+      <button ion-button color="transparent" (click)="goToHome()">
+        <img src="/assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
+      </button>
+    </ion-buttons>
+    <button ion-button  menuToggle="right" end>
+      <ion-icon name="notifications"></ion-icon>
+    </button>
+    <button ion-button menuToggle="left" start>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>

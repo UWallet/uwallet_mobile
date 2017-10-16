@@ -98,7 +98,7 @@ export class MiPerfilPage {
   				      .subscribe(
             				CreditCard => this.creditCardToCreate,
             				error => {this.errorMessage = <any>error
-                      console.log(error);
+                    //console.log(error);
                     this.handleError(error);
                     },
                     () => {
@@ -196,15 +196,26 @@ export class MiPerfilPage {
               if(0==(this.CreditCardsUser[i].number.localeCompare(String(data.NoCard)))){
                 this.creditCardToTransfer.cardId=parseInt(this.CreditCardsUser[i].id);
                 this.creditCardToTransfer.money=parseInt(data.money);
+                //console.log(NaN+1);
                 this.cond= true;
-                this.VerifyPass();
+                if (isNaN(this.creditCardToTransfer.money) || this.creditCardToTransfer.money<=0){
+                  this.titleWindow="Error";
+                  this.messageWindow="El monto especificado es invalido";
+                  this.showResult();
+
+                }else{
+                  this.VerifyPass();
+                }
 
 
               }
             }
             if (this.cond==false){
-              console.log("la tarjeta especificada esta fuera de su dominio");
+              //console.log("la tarjeta especificada esta fuera de su dominio");
               //hacer que lo imprima en la aplicacion
+              this.titleWindow="Error";
+              this.messageWindow="la tarjeta especificada esta fuera de su dominio";
+                this.showResult();
             }
             //console.log(data);
 
@@ -284,8 +295,8 @@ export class MiPerfilPage {
   }
 
   private handleError (error: Response | any) {
-
-      console.log(error.status);
+      var temp=String(error);
+      //console.log(String(error));
     if(error.status==403){
       this.cond=false;
       this.titleWindow="Error";
@@ -298,11 +309,17 @@ export class MiPerfilPage {
       this.messageWindow="No tienes suficiente dinero en tu tarjeta para la transferencia";
       this.showResult();
     }
-    if(error.status==422){
-      console.log("hola");
+    if(temp.startsWith("422")){
       this.cond=false;
       this.titleWindow="Error";
-      this.messageWindow="Valores incorrectos";
+      if (temp.includes("[")){
+        var beg=temp.indexOf("[");
+        var end=temp.indexOf("]");
+        this.messageWindow= temp.substring(beg+2,end-1);
+      }
+      //console.log("hola");
+
+      //this.messageWindow="Valores incorrectos";
       this.showResult();
     }
   }

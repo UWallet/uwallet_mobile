@@ -5,16 +5,12 @@
         <img src="/assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
       </button>
     </ion-buttons>
-    <ion-buttons end>
-      <button ion-button (click)="doClick()">
-        <ion-icon name="notifications"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-buttons right>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-buttons>
+    <button ion-button  menuToggle="right" end>
+      <ion-icon name="notifications"></ion-icon>
+    </button>
+    <button ion-button menuToggle="left" start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Mi Perfil
     </ion-title>
@@ -26,7 +22,7 @@
 <ion-content padding id="page6">
   <div id="miPerfil-markdown10" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-      No. cuenta: {{user.id}}
+      No. cuenta: 0000000{{user.id}}
     </p>
   </div>
   <div id="miPerfil-markdown11" class="show-list-numbers-and-dots">

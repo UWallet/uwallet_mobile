@@ -5,17 +5,17 @@
         <img src="/assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
       </button>
     </ion-buttons>
-    <button ion-button menuToggle right>
+    <button ion-button  menuToggle="right" end>
+      <ion-icon name="notifications"></ion-icon>
+    </button>
+    <button ion-button menuToggle="left" start>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-buttons end>
-      <button ion-button (click)="doClick()">
-        <ion-icon name="notifications"></ion-icon>
-      </button>
-    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page1">
+
   <div id="home-container1">
     <button id="home-button8" ion-button color="positive" block on-click="goToTransacciones()">
       Realizar Transferencia

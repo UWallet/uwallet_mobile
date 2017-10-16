@@ -5,6 +5,12 @@ import { ExtractosPage } from '../extractos/extractos';
 import { TransaccionesPage } from '../transacciones/transacciones';
 import { PendientesPage } from '../pendientes/pendientes';
 
+//import {AngularFireDatabase } from '../../../node_modules/angularfire2/src/database/database';
+//import {FirebaseListObservable } from '../../../node_modules/angularfire2/src/database-deprecated/firebase_list_observable';
+
+
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -26,6 +32,7 @@ export class HomePage {
 
   ionViewDidLoad() {
   this.menu.swipeEnable(true, 'menu');
+  this.menu.swipeEnable(true, 'menuNotifications');
   console.log("Estoy en home, la token es:",sessionStorage.getItem("token"));
   }
 }

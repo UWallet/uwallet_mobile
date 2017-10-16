@@ -19,7 +19,21 @@ import { UserService } from '../providers/rest/userService';
 import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
 import { TransactionService } from '../providers/rest/transactionsService';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+//import { AngularFireModule } from '../../node_modules/angularfire2/src/core/angularfire2';
+//import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/src/database/database.module';
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCjhQCw9scm2EklDAD7vbku9ybB-jIfYX0",
+    authDomain: "notifications-db.firebaseapp.com",
+    databaseURL: "https://notifications-db.firebaseio.com",
+    projectId: "notifications-db",
+    storageBucket: "notifications-db.appspot.com",
+    messagingSenderId: "82818122160"
+};
 @NgModule({
   declarations: [
     MyApp,
@@ -34,7 +48,9 @@ import { TransactionService } from '../providers/rest/transactionsService';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig,'notifications'),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,4 +74,8 @@ import { TransactionService } from '../providers/rest/transactionsService';
 
   ]
 })
-export class AppModule {}
+
+export class AppModule {
+
+
+}
