@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+//import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
@@ -9,7 +9,7 @@ import {User} from '../../models/User';
 
 @Injectable()
 export class UserService {
-  private apiUrl = 'http://192.168.99.102:4000/users';
+  private apiUrl = 'http://192.168.99.101:4000/users';
   constructor(public http: Http) {
 
   }

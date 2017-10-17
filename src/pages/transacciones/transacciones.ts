@@ -173,8 +173,6 @@ export class TransaccionesPage {
   }
 
   private handleError (error: Response | any) {
-      const body = error.json() || '';
-      console.log(error);
     if(error.status==401){
         this.showFailPass();
     }

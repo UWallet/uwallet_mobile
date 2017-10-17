@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController  } from 'ionic-angular';
-import { RestProvider } from '../../providers/rest/rest';
 import { ExtractosPage } from '../extractos/extractos';
 import { TransaccionesPage } from '../transacciones/transacciones';
 import { PendientesPage } from '../pendientes/pendientes';

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavController, MenuController  } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { HomePage } from '../home/home';
 import { UserService } from '../../providers/rest/userService';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
@@ -22,7 +23,7 @@ export class LoginPage {
     submitAttempt: boolean = false;
     unautorized: boolean = false;
 
-  constructor(private menu: MenuController,public formBuilder: FormBuilder, public navCtrl: NavController, public rest: UserService) {
+  constructor(private menu: MenuController, public events: Events ,public formBuilder: FormBuilder, public navCtrl: NavController, public rest: UserService) {
   }
 
   ionViewWillLoad(){
@@ -65,14 +66,13 @@ export class LoginPage {
           },
           () => {
               sessionStorage.setItem("token", this.token);
+              this.events.publish('user:login');
               this.goToHome(null);
           }
         )
       }
   }
   private handleError (error: Response | any) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
     if(error.status==401){
       this.unautorized=true;
     }

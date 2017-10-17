@@ -14,7 +14,6 @@ import { ExtractosPage } from '../pages/extractos/extractos';
 import { HttpModule } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { RestProvider } from '../providers/rest/rest';
 import { UserService } from '../providers/rest/userService';
 import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
 import { TransactionService } from '../providers/rest/transactionsService';
@@ -67,7 +66,6 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider,
     UserService,
     ProfileServiceProvider,
     TransactionService

@@ -7,12 +7,11 @@ import { TransaccionesPage } from '../pages/transacciones/transacciones';
 import { PendientesPage } from '../pages/pendientes/pendientes';
 import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil';
 
-
 import { LoginPage } from '../pages/login/login';
 
 import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
 import { FirebaseListObservable, AngularFireDatabase  } from 'angularfire2/database';
-
+import { Events } from 'ionic-angular';
 
 
 @Component({
@@ -24,27 +23,11 @@ export class MyApp {
   notifications: FirebaseListObservable<any>;
   arreglo = [];
   ActualUser: number;
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public fireDatabase: AngularFireDatabase, public rest: ProfileServiceProvider) {
+  constructor(public events: Events, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public fireDatabase: AngularFireDatabase, public rest: ProfileServiceProvider) {
     this.notifications = this.fireDatabase.list('/registros');
-    /*this.rest.GetUserInfo().subscribe(
-      obj => {
-        //console.log(obj);
-        this.ActualUser=obj.id;
-      }
-    );*/
-    this.notifications.subscribe(notifications => {
-    // items is an array
-      notifications.forEach(notification => {
-          if (notification.id_user==1){
-              this.arreglo.push(notification);
-          }
-          //console.log( notification.id_user);
-      });
+    events.subscribe('user:login', () => {
+      this.loadNotifications();
     });
-    /*for (var i = 0; i < this.notifications.length; i++) {
-
-    }*/
-    console.log(  this.arreglo);
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -55,8 +38,32 @@ export class MyApp {
   logOut(params){
     if (!params) params = {};
     sessionStorage.setItem("token", "");
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.setRoot(LoginPage);
 
+  }
+
+  loadNotifications() {
+    this.rest.GetUserInfo().subscribe(
+      obj => {
+        //console.log(obj);
+        this.ActualUser=obj.id;
+      }
+    );
+    //console.log(this.ActualUser)
+    this.notifications.subscribe(notifications => {
+    // items is an array
+      this.arreglo=[];
+      notifications.reverse().forEach(notification => {
+          if (notification.id_user==this.ActualUser){
+              this.arreglo.push(notification);
+          }
+          //console.log( notification.id_user);
+      });
+    });
+    /*for (var i = 0; i < this.notifications.length; i++) {
+
+    }*/
+    console.log(  this.arreglo);
   }
   goToTransacciones(params){
     if (!params) params = {};
