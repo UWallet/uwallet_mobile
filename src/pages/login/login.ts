@@ -26,8 +26,9 @@ export class LoginPage {
   }
 
   ionViewWillLoad(){
+    var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?\.([a-z])*$/i;
       this.loginForm = this.formBuilder.group({
-        email: ['',Validators.compose([Validators.email, Validators.required])],
+        email: ['',Validators.compose([Validators.pattern(EMAIL_REGEXP), Validators.required])],
         password: ['',Validators.required]
       });
 

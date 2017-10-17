@@ -16,14 +16,11 @@
         <ion-input (ngModelChange)="emailError=false" type="email" email required [(ngModel)]="user.email"  formControlName="email"></ion-input>
       </ion-item>
       <div class="validation-errors">
-        <li *ngFor="let validation of validation_messages.firstName">
-          <ion-item  text-wrap no-lines class="error-message" *ngIf="validations_form.get('firstName').hasError(validation.type) && (validations_form.get('firstName').dirty || validations_form.get('firstName').touched || submitAttempt)">
+        <li *ngFor="let validation of validation_messages.email">
+          <ion-item  text-wrap no-lines class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched || submitAttempt)">
             <p style="color:red;"> {{ validation.message }}</p>
           </ion-item>
         </li>
-        <ion-item text-wrap no-lines *ngIf="(firstNameError) && (validations_form.get('firstName').touched)">
-                  <p style="color:red;">Los nombres ingresados no son validos</p>
-        </ion-item>
       <ion-item no-lines text-wrap *ngIf="!validations_form.controls.email.valid  && (validations_form.controls.email.dirty || submitAttempt)">
                 <p style="color:red;">Ingrese un email valido</p>
       </ion-item>
