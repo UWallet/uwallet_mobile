@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav } from 'ionic-angular';
+import { AlertController, Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -9,9 +9,13 @@ import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil';
 
 import { LoginPage } from '../pages/login/login';
 
+import { FCM } from '@ionic-native/fcm';
+
 import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
 import { FirebaseListObservable, AngularFireDatabase  } from 'angularfire2/database';
 import { Events } from 'ionic-angular';
+
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -20,21 +24,47 @@ import { Events } from 'ionic-angular';
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
     rootPage:any = LoginPage;
-  notifications: FirebaseListObservable<any>;
+  notifications: Observable<any[]>;
   arreglo = [];
   ActualUser: number;
-  constructor(public events: Events, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public fireDatabase: AngularFireDatabase, public rest: ProfileServiceProvider) {
+
+  constructor(public events: Events,
+              platform: Platform,
+              statusBar: StatusBar,
+              splashScreen: SplashScreen,
+              public fireDatabase: AngularFireDatabase,
+              public rest: ProfileServiceProvider,
+              public alertCtrl: AlertController,
+              public fcm: FCM) {
     this.notifications = this.fireDatabase.list('/registros');
     events.subscribe('user:login', () => {
       this.loadNotifications();
     });
     platform.ready().then(() => {
+      fcm.onTokenRefresh().subscribe(token=>{
+        console.log(token);
+      })
+      fcm.subscribeToTopic('2');
+
+      fcm.getToken().then(token=>{
+        console.log(token);
+      })
+
+      fcm.onNotification().subscribe(data=>{
+        if(data.wasTapped){
+          console.log("Received in background");
+        } else {
+          console.log("Received in foreground");
+        };
+      })
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
+
+
   logOut(params){
     if (!params) params = {};
     sessionStorage.setItem("token", "");

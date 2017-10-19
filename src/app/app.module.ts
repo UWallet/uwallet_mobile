@@ -21,6 +21,8 @@ import { TransactionService } from '../providers/rest/transactionsService';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+import { FCM } from '@ionic-native/fcm';
+
 //import { AngularFireModule } from '../../node_modules/angularfire2/src/core/angularfire2';
 //import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/src/database/database.module';
 
@@ -68,8 +70,8 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
     ProfileServiceProvider,
-    TransactionService
-
+    TransactionService,
+    FCM
   ]
 })
 
