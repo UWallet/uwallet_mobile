@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil';
 import { ExtractosPage } from '../pages/extractos/extractos';
+import { PagoPendientePage } from '../pages/pago-pendiente/pago-pendiente';
 
 
 import { HttpModule } from '@angular/http';
@@ -17,6 +18,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserService } from '../providers/rest/userService';
 import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
 import { TransactionService } from '../providers/rest/transactionsService';
+import { ExtractsServiceProvider } from '../providers/rest/extractsService';
+import { PendingPayServiceProvider } from '../providers/rest/pendingPayService';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -42,7 +46,8 @@ const firebaseConfig = {
     LoginPage,
     SignupPage,
     MiPerfilPage,
-    ExtractosPage
+    ExtractosPage,
+    PagoPendientePage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,8 @@ const firebaseConfig = {
     LoginPage,
     SignupPage,
     MiPerfilPage,
-    ExtractosPage
+    ExtractosPage,
+    PagoPendientePage
   ],
   providers: [
     StatusBar,
@@ -68,7 +74,9 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
     ProfileServiceProvider,
-    TransactionService
+    TransactionService,
+    PendingPayServiceProvider,
+    ExtractsServiceProvider
 
   ]
 })

@@ -17,24 +17,35 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page7">
-  <div id="extractos-markdown9" class="show-list-numbers-and-dots">
+  <!--<div id="extractos-markdown9" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-      Ingrese la fecha de inicio y la fecha final para poder generar los extractos de su cuenta
+      Ingrese desde hace cuantos dias desea generar su extracto
     </p>
-  </div>
-  <div id="extractos-markdown8" class="show-list-numbers-and-dots">
+  </div>-->
+  <!--<div id="extractos-markdown8" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
       Fecha de Inicio
     </p>
-  </div>
-  <form id="extractos-form3">
+  </div>-->
+  <!--<form id="extractos-form3">
     <ion-item id="extractos-input8">
       <ion-label>
         Día
       </ion-label>
       <ion-input type="text" placeholder=""></ion-input>
-    </ion-item>
-    <ion-item id="extractos-input9">
+    </ion-item>-->
+    <button id="extractos-button5" ion-button color="positive"   block (click)="RenderAllExtracts()">
+      Generar Extracto completoRenderAllExtracts
+    </button>
+    <div id="extractos-markdown12" style="text-align:center;" class="show-list-numbers-and-dots">
+      <!--<p style="color:#000000;">
+        ó
+      </p>-->
+    </div>
+    <button id="extractos-button6" ion-button color="positive"  block (click)="RenderExtractsByDays()">
+      Extracto limitado por dias
+    </button>
+    <!--<ion-item id="extractos-input9">
       <ion-label>
         Mes
       </ion-label>
@@ -45,9 +56,9 @@
         Año
       </ion-label>
       <ion-input type="text" placeholder=""></ion-input>
-    </ion-item>
-  </form>
-  <div id="extractos-markdown10" class="show-list-numbers-and-dots">
+    </ion-item>-->
+  <!--</form>-->
+  <!--<div id="extractos-markdown10" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
       Fecha Final
     </p>
@@ -82,5 +93,5 @@
     <button id="extractos-button6" ion-button color="positive" block>
       Enviar al correo
     </button>
-  </form>
+  </form>-->
 </ion-content>

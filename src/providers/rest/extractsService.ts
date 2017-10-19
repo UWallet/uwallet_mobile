@@ -5,44 +5,33 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
-import {CreditCard} from '../../models/CreditCard';
+//import {AngularFireDatabase } from '../../../node_modules/angularfire2/src/database/database';
+//import {FirebaseListObservable } from '../../../node_modules/angularfire2/src/database-deprecated/firebase_list_observable';
 
-/*
-  Generated class for the RestProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
-export class CreditCardsServiceProvider {
+export class ExtractsServiceProvider {
   private apiUrl = 'http://192.168.99.102:4000';
   constructor(public http: Http) {
+    console.log('Hello RestProvider Provider');
   }
-  AllCreditCardsByUser(): Observable<any> {
+
+  GetAllExtracts(): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
-    return this.http.get((this.apiUrl+ '/credit_cards'), options)
-                .map(this.extractData)
+    return this.http.get((this.apiUrl+ '/all_extracts'), options)
+                .catch(this.handleError);
+  }
+  GetExtractsByDays(days): Observable<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get((this.apiUrl+ '/day_extracts?id='+days), options)
                 .catch(this.handleError);
   }
 
-  CreateCard(creditCard: CreditCard) {
-        let body = JSON.stringify( creditCard);
-        console.log(body);
-        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
-        let options = new RequestOptions({ headers: headers });
-        return this.http.post(('http://192.168.99.102:4000/credit_cards/registercard'), body, options)
-            .map((res: Response) => {
-              if (res.status===201) {
-                this.extractData;
-              }
-            })
-            .catch(this.handleError);
-    }
-
-
 private extractData(res: Response) {
   let body = res.json();
+  //console.log(body);
   return body || { };
 }
   private handleError (error: Response | any) {
