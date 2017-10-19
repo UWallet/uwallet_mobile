@@ -18,3 +18,46 @@
 .scroll-content {
    overflow-y: auto !important;
 }
+.toolbar-background {
+    background-color: map-get($colors, palette_dark_green);
+}
+
+.content-background{
+  background-color: map-get($colors, palette_dark_grey);
+}
+
+.toolbar-title{
+  color:  map-get($colors, palette_dark_grey);
+}
+
+ion-alert {
+  &.alert-warning {
+    .alert-message {
+      overflow-y: auto;
+    }
+  }
+  &.alert-danger {
+    .alert-message {
+      overflow-y: auto;
+    }
+    .alert-head {
+      background: map-get($colors, danger);
+      color: #fff;
+      margin-bottom: 10px;
+    }
+  }
+  &.alert-success {
+    .alert-message {
+      overflow-y: auto;
+    }
+    .alert-head {
+      background: map-get($colors, success);
+      color: #fff;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.item.item-input {
+    background-color: white;
+}

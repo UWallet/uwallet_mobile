@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil';
 import { ExtractosPage } from '../pages/extractos/extractos';
-
+import { PagoPendientePage } from '../pages/pago-pendiente/pago-pendiente';
 
 import { HttpModule } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,6 +18,7 @@ import { RestProvider } from '../providers/rest/rest';
 import { UserService } from '../providers/rest/userService';
 import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
 import { TransactionService } from '../providers/rest/transactionsService';
+import { PendingPayServiceProvider } from '../providers/rest/pendingPayService';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { TransactionService } from '../providers/rest/transactionsService';
     LoginPage,
     SignupPage,
     MiPerfilPage,
-    ExtractosPage
+    ExtractosPage,
+    PagoPendientePage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { TransactionService } from '../providers/rest/transactionsService';
     LoginPage,
     SignupPage,
     MiPerfilPage,
-    ExtractosPage
+    ExtractosPage,
+    PagoPendientePage
   ],
   providers: [
     StatusBar,
@@ -54,7 +57,8 @@ import { TransactionService } from '../providers/rest/transactionsService';
     RestProvider,
     UserService,
     ProfileServiceProvider,
-    TransactionService
+    TransactionService,
+    PendingPayServiceProvider
 
   ]
 })

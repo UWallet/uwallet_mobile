@@ -1,21 +1,45 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-buttons start>
-      <button ion-button icon-left>
-        <ion-icon name="albums"></ion-icon>
-        UWallet
+  <ion-navbar hideBackButton>
+    <ion-buttons left>
+      <button ion-button color="transparent" (click)="goToHome()">
+        <img src="/assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="doClick()">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>
-      Pendientes
+      Pagos Pendientes
     </ion-title>
   </ion-navbar>
 </ion-header>
+
 <ion-content padding id="page3">
-  <div>
-    <input type="date">
-  </div>
+  <ion-list id="pendientes-list1">
+    <ion-item color="none" *ngFor="let listpay of ListPay">
+      <h3>No. {{listpay.target_account}} </h3>
+      <p>Monto a pagar: {{listpay.cost}}</p>
+      <p>Fecha limite: {{listpay.date_pay}}</p>
+      <p>Descripcion: {{listpay.description}}</p>
+      <p>Pago realizado: {{listpay.state}}</p>
+    </ion-item>
+  </ion-list>
+  <div class="spacer" style="height:20px;" id="pendientes-spacer4"></div>
+  <button id="pendientes-button7" ion-button color="positive" block on-click="editPendingPay()">
+    Modificar Pago
+  </button>
+  <button id="pendientes-button9" ion-button style="background-color:green" ion-button color="positive" block on-click="goToPagoPendiente()">
+    + Pago Pendiente
+  </button>
+  <button id="pendientes-button8" ion-button style="background-color:red " ion-button color="positive" block on-click="deletePendingPay()">
+    Eliminar Pago Pendiente
+  </button>
+
 </ion-content>

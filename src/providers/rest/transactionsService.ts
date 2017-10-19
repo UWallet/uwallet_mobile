@@ -11,9 +11,7 @@ import {User} from '../../models/User';
 export class TransactionService {
 
   private apiUrl = 'http://192.168.99.101:4000/';
-  constructor(public http: Http) {
-
-  }
+  constructor(public http: Http) {}
 
   createTransaction(amount: number, target: number){
     let body = JSON.stringify(
@@ -29,7 +27,7 @@ export class TransactionService {
       (error: Response) =>{
         return error.json();
       })
-  }
+    }
 
   verifyPass(password: string){
     let body = JSON.stringify(

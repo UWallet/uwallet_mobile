@@ -25,6 +25,7 @@ export class MiPerfilPage {
   res: string;
 
   titleWindow: string;
+
   messageWindow: string;
   //testRadioOpen: boolean;
   testRadioResult;
@@ -192,7 +193,6 @@ export class MiPerfilPage {
             for (var i = 0; i < this.CreditCardsUser.length; i++) {
               //console.log(this.CreditCardsUser[i].number);
               //console.log(data.Nocard);
-
               if(0==(this.CreditCardsUser[i].number.localeCompare(String(data.NoCard)))){
                 this.creditCardToTransfer.cardId=parseInt(this.CreditCardsUser[i].id);
                 this.creditCardToTransfer.money=parseInt(data.money);
@@ -207,7 +207,6 @@ export class MiPerfilPage {
               //hacer que lo imprima en la aplicacion
             }
             //console.log(data);
-
           }
 
         }

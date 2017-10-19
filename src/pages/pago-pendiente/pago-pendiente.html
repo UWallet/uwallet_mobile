@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons left>
+      <button ion-button color="transparent" (click)="goToHome()">
+        <img src="/assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="doClick()">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Mis Pagos Pendientes
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="page8">
+  <div id="PagoPendiente-markdown15" class="show-list-numbers-and-dots">
+    <p style="color:#000000;">
+      A continuación ingresa los datos necesarios de tu pago pendiente.
+    </p>
+  </div>
+  <form [formGroup]="payForm" id="PagoPendiente-form7">
+    <ion-item id="PagoPendiente-input14">
+      <ion-label>
+        Cuenta a depositar
+      </ion-label>
+      <ion-input type="number" required [(ngModel)]="listpay.target_account" formControlName="target_account" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item id="PagoPendiente-input15">
+      <ion-label>
+        Monto a pagar
+      </ion-label>
+      <ion-input type="number" required [(ngModel)]="listpay.cost" formControlName="" placeholder="cost"></ion-input>
+    </ion-item>
+    <ion-item id="PagoPendiente-input18">
+      <ion-label>
+        Descripción
+      </ion-label>
+      <ion-input type="string" required [(ngModel)]="listpay.description" formControlName="description"  placeholder=""></ion-input>
+    </ion-item>
+    <ion-label>
+      Fecha límite de pago
+    </ion-label>
+    <ion-item id="PagoPendiente-input19">
+      <input type = "date" required [(ngModel)]="listpay.date_pay" formControlName="date_pay">
+    </ion-item>
+    <div class="spacer" style="height:110px;" id="PagoPendiente-spacer5"></div>
+  </form>
+
+  <button id="PagoPendiente-button12" ion-button color="positive" block on-click="AddPendingPay()">
+    Crear
+  </button>
+</ion-content>

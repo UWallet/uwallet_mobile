@@ -22,7 +22,7 @@ export class HomePage {
     this.navCtrl.push(TransaccionesPage);
   }goToPendientes(params){
     if (!params) params = {};
-    this.navCtrl.push(MiPerfilPage);
+    this.navCtrl.push(PendientesPage);
   }
 
   ionViewDidLoad() {
