@@ -15,7 +15,7 @@ import {CardToTransfer} from '../../models/CreditCard';
 */
 @Injectable()
 export class ProfileServiceProvider {
-  private apiUrl = 'http://192.168.99.102:4000';
+  private apiUrl = 'http://10.203.152.166:4000';
   constructor(public http: Http) {
 
   }

@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 
  @Injectable()
  export class PendingPayServiceProvider {
-   private apiUrl = 'http://192.168.99.101:4000';
+   private apiUrl = 'http://10.203.152.166:4000';
    constructor(public http: Http) {}
    //prueba =new ListPendingPay (0,0,'','',0,'No');
    createItemOfList(PendingPay: ListPendingPayCreate){
