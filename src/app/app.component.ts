@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav } from 'ionic-angular';
+import { AlertController, Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -9,9 +9,15 @@ import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil';
 
 import { LoginPage } from '../pages/login/login';
 
+import { FCM } from '@ionic-native/fcm';
+
+import { UserService } from '../providers/rest/userService';
 import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
+
 import { FirebaseListObservable, AngularFireDatabase  } from 'angularfire2/database';
 import { Events } from 'ionic-angular';
+
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -20,25 +26,61 @@ import { Events } from 'ionic-angular';
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
     rootPage:any = LoginPage;
-  notifications: FirebaseListObservable<any>;
+  notifications: Observable<any[]>;
   arreglo = [];
+  arreglo2= [];
   ActualUser: number;
-  constructor(public events: Events, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public fireDatabase: AngularFireDatabase, public rest: ProfileServiceProvider) {
+
+  constructor(public events: Events,
+              platform: Platform,
+              statusBar: StatusBar,
+              splashScreen: SplashScreen,
+              public fireDatabase: AngularFireDatabase,
+              public rest: ProfileServiceProvider,
+              public user: UserService,
+              public alertCtrl: AlertController,
+              public fcm: FCM) {
     this.notifications = this.fireDatabase.list('/registros');
     events.subscribe('user:login', () => {
       this.loadNotifications();
     });
     platform.ready().then(() => {
+      fcm.onTokenRefresh().subscribe(token=>{
+        sessionStorage.setItem("device_token", token);
+      })
+
+      fcm.getToken().then(token=>{
+        sessionStorage.setItem("device_token", token);
+      })
+
+      fcm.onNotification().subscribe(data=>{
+        console.log(data);
+        if(data.wasTapped){
+
+          alert( JSON.stringify(data) );
+  }else{
+  this.arreglo.push(data);
+}  });
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
+
+
   logOut(params){
     if (!params) params = {};
-    sessionStorage.setItem("token", "");
-    this.navCtrl.setRoot(LoginPage);
+    let device_token = sessionStorage.getItem("device_token");
+    this.user.logout(device_token)
+      .subscribe(
+        res => {},
+        error => {console.log(error);},
+        () => {
+          sessionStorage.setItem("token", "");
+          this.navCtrl.setRoot(LoginPage);
+        }
+      )
 
   }
 
@@ -49,13 +91,13 @@ export class MyApp {
         this.ActualUser=obj.id;
       }
     );
-    //console.log(this.ActualUser)
+    console.log(this.ActualUser)
     this.notifications.subscribe(notifications => {
     // items is an array
-      this.arreglo=[];
-      notifications.reverse().forEach(notification => {
+      this.arreglo2=[];
+      notifications.forEach(notification => {
           if (notification.id_user==this.ActualUser){
-              this.arreglo.push(notification);
+              this.arreglo2.push(notification);
           }
           //console.log( notification.id_user);
       });
@@ -63,8 +105,10 @@ export class MyApp {
     /*for (var i = 0; i < this.notifications.length; i++) {
 
     }*/
-    console.log(  this.arreglo);
+    this.arreglo= this.arreglo2;
   }
+
+
   goToTransacciones(params){
     if (!params) params = {};
     this.navCtrl.push(TransaccionesPage);

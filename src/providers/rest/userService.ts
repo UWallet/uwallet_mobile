@@ -9,20 +9,36 @@ import {User} from '../../models/User';
 
 @Injectable()
 export class UserService {
-  private apiUrl = 'http://192.168.99.101:4000/users';
+  private apiUrl = 'http://192.168.99.102:4000/users';
   constructor(public http: Http) {
 
   }
 
 
-  login(email: string, password: string){
+  login(email: string, password: string, device_token: string){
     let body = JSON.stringify(
       {email: email,
-      password: password
+      password: password,
+      device_token: device_token
      });
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
     return this.http.post((this.apiUrl+'/login'), body, options)
+        .map((res: Response) => {
+            return this.extractData(res);
+      },
+      (error: Response) =>{
+        return error.json();
+      })
+  }
+
+  logout(device_token: string){
+    let body = JSON.stringify({
+      device_token: device_token
+     });
+    let headers = new Headers({ 'Content-Type': 'application/json' , 'Authorization': sessionStorage.getItem("token")});
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post((this.apiUrl+'/logout'), body, options)
         .map((res: Response) => {
             return this.extractData(res);
       },
