@@ -47,21 +47,21 @@ export class ExtractosPage {
           handler: data => {
             //console.log(data);
 
-            this.days=parseInt(data.days)
+            /*this.days=parseInt(data.days)
             this.rest.GetExtractsByDays(  this.days)
   				      .subscribe(
             				error => {
                     //console.log(error);
                     },
                     () => {
-                      /*if (this.cond==true){
+                      if (this.cond==true){
                       this.RenderUserInfo();
                       this.titleWindow="¡tarjeta añadida con exito!";
                       this.messageWindow="La tarjeta ha sido vinculada a tu cuenta";
                       this.showResult();
-                    }*/
                     }
-                    );
+                    }
+                  );*/
 
 
           }

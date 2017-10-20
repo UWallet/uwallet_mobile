@@ -13,7 +13,7 @@ import 'rxjs/add/observable/throw';
 export class ExtractsServiceProvider {
   private apiUrl = 'http://192.168.99.101:4000';
   constructor(public http: Http) {
-    console.log('Hello RestProvider Provider');
+    //console.log('Hello RestProvider Provider');
   }
 
   GetAllExtracts(): Observable<any> {
@@ -22,10 +22,10 @@ export class ExtractsServiceProvider {
     return this.http.get((this.apiUrl+ '/all_extracts'), options)
                 .catch(this.handleError);
   }
-  GetExtractsByDays(days): Observable<any> {
+  GetExtractsByDays(d_0,m_0,a_0,d_1,m_1,a_1): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
-    return this.http.get((this.apiUrl+ '/day_extracts?id='+days), options)
+    return this.http.get((this.apiUrl+ '/day_extracts?d_0='+d_0+'&m_0='+m_0+'&a_0='+a_0+'&d_1='+d_1+'&m_1='+m_1+'&a_1='+a_1), options)
                 .catch(this.handleError);
   }
 
