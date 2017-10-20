@@ -15,7 +15,7 @@ import {CreditCard} from '../../models/CreditCard';
 */
 @Injectable()
 export class CreditCardsServiceProvider {
-  private apiUrl = 'http://192.168.99.102:4000';
+  private apiUrl = 'http://192.168.99.101:4000';
   constructor(public http: Http) {
   }
   AllCreditCardsByUser(): Observable<any> {
@@ -31,7 +31,7 @@ export class CreditCardsServiceProvider {
         console.log(body);
         let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(('http://192.168.99.102:4000/credit_cards/registercard'), body, options)
+        return this.http.post(('http://192.168.99.101:4000/credit_cards/registercard'), body, options)
             .map((res: Response) => {
               if (res.status===201) {
                 this.extractData;

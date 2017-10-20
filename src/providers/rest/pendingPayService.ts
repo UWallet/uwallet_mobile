@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
  import 'rxjs/add/operator/catch';
  import 'rxjs/add/operator/map';
  import 'rxjs/add/observable/throw';
- import { ListPendingPay } from '../../models/PendingPay';
+ import { ListPendingPay, ListPendingPayCreate } from '../../models/PendingPay';
 
  @Injectable()
  export class PendingPayServiceProvider {
-   private apiUrl = 'http://192.168.99.102:4000';
+   private apiUrl = 'http://192.168.99.101:4000';
    constructor(public http: Http) {}
    //prueba =new ListPendingPay (0,0,'','',0,'No');
-   createItemOfList(PendingPay: ListPendingPay){
+   createItemOfList(PendingPay: ListPendingPayCreate){
      let body = JSON.stringify(PendingPay);
      let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
      let options = new RequestOptions({ headers: headers });
@@ -52,6 +52,7 @@ import { Injectable } from '@angular/core';
 
    AllPendingPaysByUser(): Observable<any> {
      let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+     console.log( sessionStorage.getItem("token"));
      let options = new RequestOptions({ headers: headers });
      return this.http.get((this.apiUrl +'/lists/by_user'), options)
                  .map(this.extractData)

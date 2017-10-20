@@ -26,6 +26,7 @@ export class MiPerfilPage {
 
   titleWindow: string;
   messageWindow: string;
+  AlertClass: string;
   //testRadioOpen: boolean;
   testRadioResult;
   constructor(private menu: MenuController, public navCtrl: NavController, public rest: ProfileServiceProvider, public alertCtrl: AlertController, public restTrans: TransactionService) {
@@ -106,6 +107,7 @@ export class MiPerfilPage {
                       this.RenderUserInfo();
                       this.titleWindow="¡tarjeta añadida con exito!";
                       this.messageWindow="La tarjeta ha sido vinculada a tu cuenta";
+                      this.AlertClass="alert-success";
                       this.showResult();
                     }
                     }
@@ -149,6 +151,7 @@ export class MiPerfilPage {
                   this.RenderUserInfo();
                   this.titleWindow="¡tarjeta borrada exitosamente!";
                   this.messageWindow="La tarjeta ha sido desvinculada a tu cuenta";
+                  this.AlertClass="alert-success";
                   this.showResult();
                 }
                 }
@@ -201,6 +204,7 @@ export class MiPerfilPage {
                 if (isNaN(this.creditCardToTransfer.money) || this.creditCardToTransfer.money<=0){
                   this.titleWindow="Error";
                   this.messageWindow="El monto especificado es invalido";
+                  this.AlertClass="alert-success";
                   this.showResult();
 
                 }else{
@@ -215,6 +219,7 @@ export class MiPerfilPage {
               //hacer que lo imprima en la aplicacion
               this.titleWindow="Error";
               this.messageWindow="la tarjeta especificada esta fuera de su dominio";
+              this.AlertClass="alert-danger";
                 this.showResult();
             }
             //console.log(data);
@@ -262,6 +267,7 @@ export class MiPerfilPage {
                               if (this.cond==true){
                               this.titleWindow="Transferencia exitosa";
                               this.messageWindow="El monto ha sido transferido de tu tarjeta a tu cuenta";
+                              this.AlertClass="alert-success";
                               this.showResult();
                             }
                             }
@@ -281,7 +287,7 @@ export class MiPerfilPage {
   let alert = this.alertCtrl.create({
     title: this.titleWindow,
     message: this.messageWindow,
-    cssClass: "alert-success",
+    cssClass: this.AlertClass,
     buttons: [
       {
       text: 'OK',
@@ -296,6 +302,7 @@ export class MiPerfilPage {
 
   private handleError (error: Response | any) {
       var temp=String(error);
+      this.AlertClass="alert-danger";
       //console.log(String(error));
     if(error.status==403){
       this.cond=false;
@@ -320,6 +327,12 @@ export class MiPerfilPage {
       //console.log("hola");
 
       //this.messageWindow="Valores incorrectos";
+      this.showResult();
+    }
+    if(temp.startsWith("400")){
+      this.cond=false;
+      this.titleWindow="Error";
+      this.messageWindow= "No tienes suficiente dinero en tu tarjeta para la transferencia";
       this.showResult();
     }
   }

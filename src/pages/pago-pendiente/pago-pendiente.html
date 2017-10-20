@@ -27,27 +27,55 @@
         <ion-label>
           Cuenta a depositar
         </ion-label>
-        <ion-input type="number" required [(ngModel)]="listpay.target_account" formControlName="target_account" placeholder=""></ion-input>
+        <ion-input type="number" required [(ngModel)]="listpay.target_account" formControlName="target_account" placeholder="target_account"></ion-input>
       </ion-item>
+      <div class="validation-errors">
+        <li *ngFor="let validation of validation_messages.target_account">
+          <ion-item  text-wrap no-lines class="error-message" *ngIf="payForm.get('target_account').hasError(validation.type) && (payForm.get('target_account').dirty || payForm.get('target_account').touched || submitAttempt)">
+            <p style="color:red;"> {{ validation.message }}</p>
+          </ion-item>
+        </li>
+      </div>
       <ion-item id="PagoPendiente-input15">
         <ion-label>
           Monto a pagar
         </ion-label>
-        <ion-input type="number" required [(ngModel)]="listpay.cost" formControlName="" placeholder="cost"></ion-input>
+        <ion-input type="number" required [(ngModel)]="listpay.cost" formControlName="cost" placeholder="cost"></ion-input>
       </ion-item>
+      <div class="validation-errors">
+        <li *ngFor="let validation of validation_messages.cost">
+          <ion-item  text-wrap no-lines class="error-message" *ngIf="payForm.get('cost').hasError(validation.type) && (payForm.get('cost').dirty || payForm.get('cost').touched || submitAttempt)">
+            <p style="color:red;"> {{ validation.message }}</p>
+          </ion-item>
+        </li>
+      </div>
       <ion-item id="PagoPendiente-input18">
         <ion-label>
           Descripción
         </ion-label>
-        <ion-input type="string" required [(ngModel)]="listpay.description" formControlName="description"  placeholder=""></ion-input>
+        <ion-input type="string" required [(ngModel)]="listpay.description" formControlName="description"  placeholder="description"></ion-input>
       </ion-item>
+      <div class="validation-errors">
+        <li *ngFor="let validation of validation_messages.description">
+          <ion-item  text-wrap no-lines class="error-message" *ngIf="payForm.get('description').hasError(validation.type) && (payForm.get('description').dirty || payForm.get('description').touched || submitAttempt)">
+            <p style="color:red;"> {{ validation.message }}</p>
+          </ion-item>
+        </li>
+      </div>
       <ion-label>
         Fecha límite de pago
       </ion-label>
       <ion-item id="PagoPendiente-input19">
-        <input type = "date" required [(ngModel)]="listpay.date_pay" formControlName="date_pay">
+        <input type = "date" required [(ngModel)]="listpay.date_pay" formControlName="date_pay"   placeholder="date_pay">
       </ion-item>
-      <div class="spacer" style="height:110px;" id="PagoPendiente-spacer5"></div>
+      <div class="validation-errors">
+        <li *ngFor="let validation of validation_messages.date_pay">
+          <ion-item  text-wrap no-lines class="error-message" *ngIf="payForm.get('date_pay').hasError(validation.type) && (payForm.get('date_pay').dirty || payForm.get('date_pay').touched || submitAttempt)">
+            <p style="color:red;"> {{ validation.message }}</p>
+          </ion-item>
+        </li>
+      </div>
+      <div class="spacer" style="height:50px;" id="PagoPendiente-spacer5"></div>
     </form>
 
     <button id="PagoPendiente-button12" ion-button color="positive" block on-click="AddPendingPay()">

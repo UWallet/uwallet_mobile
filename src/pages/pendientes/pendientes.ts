@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
  import { AlertController } from 'ionic-angular';
  import { FormBuilder, FormGroup } from '@angular/forms';
  import { PagoPendientePage } from '../pago-pendiente/pago-pendiente';
+ import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-pendientes',
@@ -23,7 +24,10 @@ export class PendientesPage {
      titleWindow: string;
      messageWindow: string;
      constructor(private menu: MenuController, public navCtrl: NavController,
-       public rest: PendingPayServiceProvider, public alertCtrl: AlertController) {
+       public rest: PendingPayServiceProvider, public alertCtrl: AlertController, public events: Events) {
+         events.subscribe('list:created', () => {
+            this.RenderPendingPays();
+        });
      }
   goToHome(params){
     if (!params) params = {};
@@ -73,7 +77,7 @@ export class PendientesPage {
    }
 
    //borrar un pago pendiente
-   deletePendingPay() {
+   /*deletePendingPay() {
      let alert = this.alertCtrl.create();
      alert.setTitle('Eliminar un pago pendiente');
      for (var i = 0; i < this.ListPay.length; i) {
@@ -149,7 +153,7 @@ export class PendientesPage {
      alert.present();
    }
 
-
+   */
 
 
 
@@ -222,7 +226,7 @@ export class PendientesPage {
    }
 
 
-   deletecard() {
+   deletePay() {
      let alert = this.alertCtrl.create();
      alert.setTitle('Eliminar un pago pendiente');
      for (var i = 0; i < this.ListPay.length; i++) {
@@ -246,14 +250,12 @@ export class PendientesPage {
                  //this.handleError(error);
                  },
                  () => {
-                  /* if (this.cond==true){
-                   this.RenderUserInfo();
-                   this.titleWindow="¡tarjeta borrada exitosamente!";
-                   this.messageWindow="La tarjeta ha sido desvinculada a tu cuenta";
-                   this.showResult();
-                 }*/
                  }
                  );
+                 this.RenderPendingPays();
+                 this.titleWindow="¡Recordatorio Eliminado!";
+                 this.messageWindow="El recordatorio ha sido borrado de tu cuenta";
+                 this.showResult();
 
        }
      });
@@ -261,7 +263,7 @@ export class PendientesPage {
      alert.present();
    }
 
-   updateCard() {
+   updatePay() {
      let alert = this.alertCtrl.create();
      alert.setTitle('Modificar el estado de la deuda');
      for (var i = 0; i < this.ListPay.length; i++) {
@@ -278,7 +280,7 @@ export class PendientesPage {
        text: 'Cambiar',
        handler: data => {
          this.listpayToUpdate=data;
-         data.state_pay=true;
+         data.state_pay=!data.state_pay;
          console.log(data);
          this.rest.ModifyPendingPay(data)
              .subscribe(
@@ -286,14 +288,13 @@ export class PendientesPage {
                  //this.handleError(error);
                  },
                  () => {
-                  /* if (this.cond==true){
-                   this.RenderUserInfo();
-                   this.titleWindow="¡tarjeta borrada exitosamente!";
-                   this.messageWindow="La tarjeta ha sido desvinculada a tu cuenta";
-                   this.showResult();
-                 }*/
+
                  }
                );
+               this.RenderPendingPays();
+               this.titleWindow="¡Recordatorio modificado!";
+               this.messageWindow="El estado de tu recordatorio ha sido cambiado";
+               this.showResult();
 
        }
      });

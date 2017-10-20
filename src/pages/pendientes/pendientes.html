@@ -20,19 +20,24 @@
   <ion-list id="pendienteslist1">
 <!--<input type="date">-->
 <ion-item color="none" *ngFor="let listpay of ListPay">
-
-<h3>No. {{listpay.target_account}} </h3>
+<h3>No. {{listpay.id}} </h3>
+<h3>Cuenta destino: {{listpay.target_account}} </h3>
   <p>Monto a pagar: {{listpay.cost}}</p>
   <p>Fecha limite: {{listpay.date_pay}}</p>
-  <p>Descripcion: {{listpay.description}}</p>
-  <p>Pago realizado: {{listpay.state}}</p>
+  <p >Descripcion: {{listpay.description}}</p>
+  <p id="cualquierCosa" >Pago realizado: {{listpay.state_pay}}</p>
+
+  <!--<div style="display: none;">show = {{state}}<div>
+  a={{listpay.state_pay}}-->
+  <div *ngIf="cualquierCosa=='true'; else elseBlock">Pago realizado: Si</div>
+    <ng-template #elseBlock>Pago realizado: No</ng-template>
+
 </ion-item>
 </ion-list>
 <div class="spacer" style="height:20px;" id="pendientesspacer4">
 
-<button ion-button style="background-color:green " color="primary"  block (click)="goToPagoPendiente()">Añadir tarjeta</button>
-<button ion-button color="primary"  block (click)="updateCard()">Modificar Pago</button>
-<button ion-button color="primary"  block (click)="addCard()">Pago Pendiente</button>
-<button ion-button color="primary"  block (click)="deletecard()">Eliminar Pago Pendiente</button>
+<button ion-button color="primary"  block (click)="updatePay()">Cambiar el estado del recordatorio</button>
+<button ion-button color="primary"  block (click)="goToPagoPendiente()">Añadir recordatorio</button>
+<button ion-button color="primary"  block (click)="deletePay()">Eliminar Recordatorio</button>
 </div>
 </ion-content>
