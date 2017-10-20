@@ -113,6 +113,6 @@ export class HomePage {
   ionViewDidLoad() {
   this.menu.swipeEnable(true, 'menu');
   this.menu.swipeEnable(true, 'menuNotifications');
-  //console.log("Estoy en home, la token es:",sessionStorage.getItem("token"));
+  //console.log("Estoy en home, la token es:",localstorage.getItem("token"));
   }
 }

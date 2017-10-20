@@ -19,7 +19,7 @@ export class TransactionService {
       {userid: target,
       amount: amount
      });
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.post((this.apiUrl+'/create_transaction'), body, options)
         .map((res: Response) => {
@@ -34,7 +34,7 @@ export class TransactionService {
     let body = JSON.stringify(
       {password: password
      });
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.post((this.apiUrl+'/users/verify_pass'), body, options)
         .map((res: Response) => {

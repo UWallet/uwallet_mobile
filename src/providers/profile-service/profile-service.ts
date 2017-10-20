@@ -20,14 +20,25 @@ export class ProfileServiceProvider {
 
   }
   GetUserInfo(): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.get((this.apiUrl+ '/users/get_user'), options)
                 .map(this.extractData)
                 .catch(this.handleError);
   }
+  ChangePassword(password_digest: string, confirmation_token:string): Observable<any> {
+    let body = JSON.stringify(
+      {password_digest: password_digest,
+      confirmation_token: confirmation_token
+     });
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put((this.apiUrl+ '/users/update'), body, options)
+                .map(this.extractData)
+                .catch(this.handleError);
+  }
   AllCreditCardsByUser(): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.get((this.apiUrl+ '/credit_cards'), options)
                 .map(this.extractData)
@@ -36,7 +47,7 @@ export class ProfileServiceProvider {
   CreateCard(creditCard: CreditCard) {
         let body = JSON.stringify( creditCard);
         //console.log(body);
-        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
         let options = new RequestOptions({ headers: headers });
         return this.http.post((this.apiUrl+'/credit_cards/registercard'), body, options)
             .map((res: Response) => {
@@ -47,7 +58,7 @@ export class ProfileServiceProvider {
             .catch(this.handleError);
     }
     DeleteCard(id) {
-          let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+          let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
           let options = new RequestOptions({ headers: headers });
           return this.http.delete((this.apiUrl+'/credit_cards?id='+id), options)
           .map((res: Response) => {
@@ -59,7 +70,7 @@ export class ProfileServiceProvider {
       }
       TransferFromCardCard(cardToTransfer: CardToTransfer) {
             let body = JSON.stringify( cardToTransfer);
-            let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+            let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
             let options = new RequestOptions({ headers: headers });
             return this.http.post((this.apiUrl+'/credit_cards/transfer_money_from_card'), body, options)
                 .map((res: Response) => {

@@ -40,6 +40,7 @@
       Dinero: $ {{user.money}}
     </p>
   </div>
+  <button ion-button color="primary"  block (click)="VerifyPassForChange()">Cambiar Contraseña</button>
   <div id="miPerfil-markdown17" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
       Tarjetas:
@@ -49,7 +50,7 @@
     <ion-item color="none" *ngFor="let card of CreditCardsUser">
       <h3>No. {{card.number}} </h3>
       <p>Dinero en tarjeta: {{card.amount}}</p>
-      <p>Fecha Expiracion: {{card.expiration_month}} {{card.expiration_year}}</p>
+      <p>Fecha Expiracion: {{card.expiration_month}}/ {{card.expiration_year}}</p>
     </ion-item>
 
   </ion-list>

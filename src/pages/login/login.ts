@@ -36,7 +36,7 @@ export class LoginPage {
   }
 
   ionViewDidLoad(){
-    if(sessionStorage.getItem("token")!= '' && sessionStorage.getItem("token")){
+    if(localstorage.getItem("token")!= '' && localstorage.getItem("token")){
         this.goToHome(null);
       }
   }
@@ -66,7 +66,7 @@ export class LoginPage {
             this.handleError(error);
           },
           () => {
-              sessionStorage.setItem("token", this.token);
+              localstorage.setItem("token", this.token);
               this.events.publish('user:login');
               this.goToHome(null);
           }

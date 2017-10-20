@@ -13,7 +13,7 @@ import { Injectable } from '@angular/core';
    //prueba =new ListPendingPay (0,0,'','',0,'No');
    createItemOfList(PendingPay: ListPendingPayCreate){
      let body = JSON.stringify(PendingPay);
-     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
      let options = new RequestOptions({ headers: headers });
      return this.http.post((this.apiUrl+'/lists'), body, options)
      .map((res: Response) => {
@@ -26,7 +26,7 @@ import { Injectable } from '@angular/core';
 
    ModifyPendingPay(any) {
      let body = JSON.stringify(any);
-     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
      let options = new RequestOptions({ headers: headers });
      return this.http.put((this.apiUrl+'/lists?id='+any.id),body, options)
      .map((res: Response) => {
@@ -38,7 +38,7 @@ import { Injectable } from '@angular/core';
      }
 
    DeletePendingPay(id) {
-         let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+         let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
          let options = new RequestOptions({ headers: headers });
          return this.http.delete((this.apiUrl+'/lists?id='+id), options)
          .map((res: Response) => {
@@ -51,8 +51,8 @@ import { Injectable } from '@angular/core';
      }
 
    AllPendingPaysByUser(): Observable<any> {
-     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
-     console.log( sessionStorage.getItem("token"));
+     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
+     console.log( localstorage.getItem("token"));
      let options = new RequestOptions({ headers: headers });
      return this.http.get((this.apiUrl +'/lists/by_user'), options)
                  .map(this.extractData)
