@@ -19,7 +19,7 @@ export class CreditCardsServiceProvider {
   constructor(public http: Http) {
   }
   AllCreditCardsByUser(): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.get((this.apiUrl+ '/credit_cards'), options)
                 .map(this.extractData)
@@ -29,7 +29,7 @@ export class CreditCardsServiceProvider {
   CreateCard(creditCard: CreditCard) {
         let body = JSON.stringify( creditCard);
         console.log(body);
-        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
         let options = new RequestOptions({ headers: headers });
         return this.http.post(('http://192.168.99.101:4000/credit_cards/registercard'), body, options)
             .map((res: Response) => {

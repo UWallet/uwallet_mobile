@@ -64,7 +64,7 @@ export class MiPerfilPage {
   addCard() {
     let prompt = this.alertCtrl.create({
       title: 'Vincular Tarjeta de credito',
-      message: "Ingresa la infromacion de la tarjeta",
+      message: "Ingresa la infromacion de la tarjeta.",
       cssClass: "alert-warning",
       inputs: [
         {
@@ -106,7 +106,7 @@ export class MiPerfilPage {
                       if (this.cond==true){
                       this.RenderUserInfo();
                       this.titleWindow="¡tarjeta añadida con exito!";
-                      this.messageWindow="La tarjeta ha sido vinculada a tu cuenta";
+                      this.messageWindow="La tarjeta ha sido vinculada a tu cuenta.";
                       this.AlertClass="alert-success";
                       this.showResult();
                     }
@@ -232,6 +232,87 @@ export class MiPerfilPage {
     prompt.present();
   }
 
+  ChangePassword(){
+      let prompt = this.alertCtrl.create({
+        title: 'Cambiar Contraseña',
+        message: "Ingrese su nueva contraseña y confirmela",
+        cssClass: 'alert-warning',
+        inputs: [
+          {
+            name: 'password_digest',
+            placeholder: 'Contraseña',
+            type: "password"
+          },
+          {
+            name: 'confirmation_token',
+            placeholder: 'Confirmar Contraseña',
+            type: "password"
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancelar'
+          },
+          {
+            text: 'Cambiar',
+            handler: data => {
+              this.rest.ChangePassword(data.password_digest,data.confirmation_token)
+                .subscribe(
+                  res => this.res = res,
+                  error => {this.errorMessage = <any>error;
+                  },
+                  () => {
+                    this.titleWindow="Contraseña cambiada";
+                    this.messageWindow="Su Contraseña ha sido modificada.";
+                    this.AlertClass="alert-success";
+                    this.showResult();
+
+                  }
+                )
+            }
+          }
+        ]
+      });
+      prompt.present();
+
+  }
+
+  VerifyPassForChange() {
+      let prompt = this.alertCtrl.create({
+        title: 'Login',
+        message: "Ingrese su contraseña actual",
+        cssClass: 'alert-warning',
+        inputs: [
+          {
+            name: 'contraseña',
+            placeholder: 'Contraseña',
+            type: "password"
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancelar'
+          },
+          {
+            text: 'Enviar',
+            handler: data => {
+              this.restTrans.verifyPass(data.contraseña)
+                .subscribe(
+                  res => this.res = res,
+                  error => {this.errorMessage = <any>error;
+                  },
+                  () => {
+                    this.ChangePassword();
+
+                  }
+                )
+            }
+          }
+        ]
+      });
+      prompt.present();
+
+  }
   VerifyPass() {
       let prompt = this.alertCtrl.create({
         title: 'Login',

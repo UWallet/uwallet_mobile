@@ -17,13 +17,13 @@ export class ExtractsServiceProvider {
   }
 
   GetAllExtracts(): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.get((this.apiUrl+ '/all_extracts'), options)
                 .catch(this.handleError);
   }
   GetExtractsByDays(d_0,m_0,a_0,d_1,m_1,a_1): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("token")});
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localstorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.get((this.apiUrl+ '/day_extracts?d_0='+d_0+'&m_0='+m_0+'&a_0='+a_0+'&d_1='+d_1+'&m_1='+m_1+'&a_1='+a_1), options)
                 .catch(this.handleError);

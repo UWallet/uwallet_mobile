@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
  import { FormBuilder, FormGroup } from '@angular/forms';
  import { PagoPendientePage } from '../pago-pendiente/pago-pendiente';
  import { Events } from 'ionic-angular';
+ import { TransactionService } from '../../providers/rest/transactionsService';
 
 @Component({
   selector: 'page-pendientes',
@@ -17,6 +18,8 @@ export class PendientesPage {
      listpay = new ListPendingPay(0,'','',0,0,false);
      listpayToCreate = new ListPendingPay(1,'','',0,0,false);
      listpayToUpdate = new ListPendingPay(1,'','',0,0,false);
+     amount=0;
+     targetCount=0;
      cond=true;
      errorMessage: string;
      res: string;
@@ -24,7 +27,7 @@ export class PendientesPage {
      titleWindow: string;
      messageWindow: string;
      constructor(private menu: MenuController, public navCtrl: NavController,
-       public rest: PendingPayServiceProvider, public alertCtrl: AlertController, public events: Events) {
+       public rest: PendingPayServiceProvider, public alertCtrl: AlertController, public events: Events, public Transrest: TransactionService) {
          events.subscribe('list:created', () => {
             this.RenderPendingPays();
         });
@@ -303,6 +306,96 @@ export class PendientesPage {
      console.log(this.listpayToUpdate);
    }
 
+   pay() {
+     let alert = this.alertCtrl.create();
+     alert.setTitle('Pagar deuda No.');
+     for (var i = 0; i < this.ListPay.length; i++) {
+       alert.addInput({
+         type: 'radio',
+         label:  ('Cta: ').concat((String(this.ListPay[i].target_account).concat(' - ')).concat(String(this.ListPay[i].description))),
+         value:  this.ListPay[i],
+         checked: false
+       });
+     }
+
+     alert.addButton('Cancelar');
+     alert.addButton({
+       text: 'Pagar',
+       handler: data => {
+         if(data.state_pay){
+           this.titleWindow="¡La deuda ya ha sido pagada!";
+           this.messageWindow="el estado de la deuda figura como pagada, si la tienes que volver a pagar modifica su estado.";
+           this.showResult();
+         }else{
+         this.listpayToUpdate=data;
+         this.targetCount=data.target_account;
+         this.amount=data.cost;
+         this.listpayToUpdate.state_pay=true;
+         this.VerifyPass();
+       }
+       }
+     });
+     alert.present();
+   }
+
+   VerifyPass() {
+       let prompt = this.alertCtrl.create({
+         title: 'Login',
+         message: "Ingrese su contraseña",
+         cssClass: 'alert-warning',
+         inputs: [
+           {
+             name: 'contraseña',
+             placeholder: 'Contraseña',
+             type: "password"
+           },
+         ],
+         buttons: [
+           {
+             text: 'Cancelar'
+           },
+           {
+             text: 'Enviar',
+             handler: data => {
+               this.Transrest.verifyPass(data.contraseña)
+                 .subscribe(
+                   res => this.res = res,
+                   error => {this.errorMessage = <any>error;
+                   },
+                   () => {
+                     this.rest.ModifyPendingPay(this.listpayToUpdate)
+                         .subscribe(
+                             error => {this.errorMessage = <any>error
+                             //this.handleError(error);
+                             },
+                             () => {
+
+                             }
+                           );
+                    this.Transrest.createTransaction(this.amount, this.targetCount)
+                      .subscribe(
+                        res => this.res = res,
+                        error => {this.errorMessage = <any>error;
+                          console.log(error)
+                         //this.handleError(error);
+                        },
+                        () => {
+                        }
+                      )
+                           this.RenderPendingPays();
+                           this.titleWindow="¡Deuda Pagada!";
+                           this.messageWindow="Felicidades, la deuda ha sido pagada.";
+                           this.showResult();
+
+                   }
+                 )
+             }
+           }
+         ]
+       });
+       prompt.present();
+
+   }
 
 /*
    TransferFromCard() {
