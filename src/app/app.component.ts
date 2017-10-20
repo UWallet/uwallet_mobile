@@ -46,11 +46,11 @@ export class MyApp {
     });
     platform.ready().then(() => {
       fcm.onTokenRefresh().subscribe(token=>{
-        sessionStorage.setItem("device_token", token);
+        localStorage.setItem("device_token", token);
       })
 
       fcm.getToken().then(token=>{
-        sessionStorage.setItem("device_token", token);
+        localStorage.setItem("device_token", token);
       })
 
       fcm.onNotification().subscribe(data=>{
@@ -71,13 +71,13 @@ export class MyApp {
 
   logOut(params){
     if (!params) params = {};
-    let device_token = sessionStorage.getItem("device_token");
+    let device_token = localStorage.getItem("device_token");
     this.user.logout(device_token)
       .subscribe(
         res => {},
         error => {console.log(error);},
         () => {
-          sessionStorage.setItem("token", "");
+          localStorage.setItem("token", "");
           this.navCtrl.setRoot(LoginPage);
         }
       )

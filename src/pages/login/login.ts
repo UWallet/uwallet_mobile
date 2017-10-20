@@ -36,7 +36,7 @@ export class LoginPage {
   }
 
   ionViewDidLoad(){
-    if(localstorage.getItem("token")!= '' && localstorage.getItem("token")){
+    if(localStorage.getItem("token")!= '' && localStorage.getItem("token")){
         this.goToHome(null);
       }
   }
@@ -58,7 +58,7 @@ export class LoginPage {
     if (this.loginForm.valid){
       let email = this.user.email;
       let password = this.user.password;
-      let device_token = sessionStorage.getItem("device_token");
+      let device_token = localStorage.getItem("device_token");
       this.rest.login(email, password, device_token)
         .subscribe(
           res => this.token = res.auth_token,
@@ -66,7 +66,7 @@ export class LoginPage {
             this.handleError(error);
           },
           () => {
-              localstorage.setItem("token", this.token);
+              localStorage.setItem("token", this.token);
               this.events.publish('user:login');
               this.goToHome(null);
           }

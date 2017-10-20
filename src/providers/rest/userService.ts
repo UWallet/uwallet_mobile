@@ -36,7 +36,7 @@ export class UserService {
     let body = JSON.stringify({
       device_token: device_token
      });
-    let headers = new Headers({ 'Content-Type': 'application/json' , 'Authorization': sessionStorage.getItem("token")});
+    let headers = new Headers({ 'Content-Type': 'application/json' , 'Authorization': localStorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.post((this.apiUrl+'/logout'), body, options)
         .map((res: Response) => {
