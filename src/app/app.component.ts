@@ -37,7 +37,7 @@ export class MyApp {
   }
   logOut(params){
     if (!params) params = {};
-    localstorage.setItem("token", "");
+    localStorage.setItem("token", "");
     this.navCtrl.setRoot(LoginPage);
 
   }
