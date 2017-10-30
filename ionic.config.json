@@ -1,6 +1,6 @@
 {
   "name": "uwallet_mobile",
-  "app_id": "",
+  "app_id": "212d5727",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

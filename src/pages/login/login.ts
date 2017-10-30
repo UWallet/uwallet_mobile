@@ -62,7 +62,8 @@ export class LoginPage {
     if (this.loginForm.valid){
       let email = this.user.email;
       let password = this.user.password;
-      this.rest.login(email, password)
+      let device_token = sessionStorage.getItem("device_token");
+      this.rest.login(email, password, device_token)
         .subscribe(
           res => this.token = res.auth_token,
           error => {this.errorMessage = <any>error;
@@ -82,5 +83,7 @@ export class LoginPage {
     if(error.status==401){
       this.unautorized=true;
     }
+    const body = error.json() || '';
+    console.log(body)
   }
 }

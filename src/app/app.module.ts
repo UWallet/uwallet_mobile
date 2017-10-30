@@ -25,6 +25,8 @@ import { PendingPayServiceProvider } from '../providers/rest/pendingPayService';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+import { FCM } from '@ionic-native/fcm';
+
 //import { AngularFireModule } from '../../node_modules/angularfire2/src/core/angularfire2';
 //import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/src/database/database.module';
 
@@ -75,6 +77,7 @@ const firebaseConfig = {
     UserService,
     ProfileServiceProvider,
     TransactionService,
+    FCM,
     PendingPayServiceProvider,
     ExtractsServiceProvider
 

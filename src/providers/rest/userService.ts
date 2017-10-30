@@ -19,11 +19,27 @@ export class UserService {
     //console.log(this.apiUrl);
     let body = JSON.stringify(
       {email: email,
-      password: password
+      password: password,
+      device_token: device_token
      });
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
     return this.http.post((this.apiUrl+'/login'), body, options)
+        .map((res: Response) => {
+            return this.extractData(res);
+      },
+      (error: Response) =>{
+        return error.json();
+      })
+  }
+
+  logout(device_token: string){
+    let body = JSON.stringify({
+      device_token: device_token
+     });
+    let headers = new Headers({ 'Content-Type': 'application/json' , 'Authorization': sessionStorage.getItem("token")});
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post((this.apiUrl+'/logout'), body, options)
         .map((res: Response) => {
             return this.extractData(res);
       },
