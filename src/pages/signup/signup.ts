@@ -71,7 +71,7 @@ export class SignupPage {
   		 return PasswordValidator.areEqual(formGroup);
   	});
 
-    var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?\.([a-z])*$/i;
+    var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.([a-z])+)+$/i;
 
     this.validations_form = this.formBuilder.group({
       firstName: new FormControl('', Validators.compose([

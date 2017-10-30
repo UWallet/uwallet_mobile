@@ -32,13 +32,6 @@
                 <p style="color:red;">No ingresó la contraseña</p>
       </ion-item>
 
-      <ion-item id="login-ip">
-        <ion-label floating>
-          Ip
-        </ion-label>
-        <ion-input type="string" name="ip" required [(ngModel)]="user.ip"  formControlName="ip"></ion-input>
-      </ion-item>
-
     </ion-list>
     <div class="spacer" style="height:40px;" id="login-spacer1" no-lines></div>
     <ion-item no-lines *ngIf="unautorized">

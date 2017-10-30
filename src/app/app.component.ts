@@ -84,6 +84,7 @@ export class MyApp {
 
   }
 
+
   loadNotifications() {
     this.rest.GetUserInfo().subscribe(
       obj => {
@@ -108,6 +109,34 @@ export class MyApp {
     this.arreglo= this.arreglo2;
   }
 
+  setIP() {
+    let prompt = this.alertCtrl.create({
+      title: 'IP',
+      message: "ip",
+      cssClass: "alert-warning",
+      inputs: [
+        {
+          name: 'ip',
+          placeholder: 'ip'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            //console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            localStorage.setItem("ip",data.ip);
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
   goToTransacciones(params){
     if (!params) params = {};
