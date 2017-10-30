@@ -15,22 +15,25 @@ import {CardToTransfer} from '../../models/CreditCard';
 */
 @Injectable()
 export class ProfileServiceProvider {
-  private apiUrl = 'http://192.168.99.101:4000';
+  private apiUrl ='http://'+localStorage.getItem("ip")+ ':4000';
   constructor(public http: Http) {
 
   }
   GetUserInfo(): Observable<any> {
+    //console.log(this.apiUrl);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localStorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.get((this.apiUrl+ '/users/get_user'), options)
                 .map(this.extractData)
                 .catch(this.handleError);
   }
-  ChangePassword(password_digest: string, confirmation_token:string): Observable<any> {
+  ChangePassword(password: string, password_confirmation:string): Observable<any> {
     let body = JSON.stringify(
-      {password_digest: password_digest,
-      confirmation_token: confirmation_token
-     });
+      {user:
+      {password: password,
+      password_confirmation: password_confirmation
+     }
+    });
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localStorage.getItem("token")});
     let options = new RequestOptions({ headers: headers });
     return this.http.put((this.apiUrl+ '/users/update'), body, options)

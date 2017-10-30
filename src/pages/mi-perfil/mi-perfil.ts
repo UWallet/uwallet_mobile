@@ -239,12 +239,12 @@ export class MiPerfilPage {
         cssClass: 'alert-warning',
         inputs: [
           {
-            name: 'password_digest',
+            name: 'password',
             placeholder: 'Contraseña',
             type: "password"
           },
           {
-            name: 'confirmation_token',
+            name: 'password_confirmation',
             placeholder: 'Confirmar Contraseña',
             type: "password"
           },
@@ -256,7 +256,7 @@ export class MiPerfilPage {
           {
             text: 'Cambiar',
             handler: data => {
-              this.rest.ChangePassword(data.password_digest,data.confirmation_token)
+              this.rest.ChangePassword(data.password,data.password_confirmation)
                 .subscribe(
                   res => this.res = res,
                   error => {this.errorMessage = <any>error;

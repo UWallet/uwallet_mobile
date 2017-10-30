@@ -15,7 +15,8 @@ export class LoginPage {
 
     user = {
       email: '',
-      password: ''
+      password: '',
+      ip:''
     };
     errorMessage: string;
     token: string;
@@ -30,7 +31,8 @@ export class LoginPage {
     var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?\.([a-z])*$/i;
       this.loginForm = this.formBuilder.group({
         email: ['',Validators.compose([Validators.pattern(EMAIL_REGEXP), Validators.required])],
-        password: ['',Validators.required]
+        password: ['',Validators.required],
+        ip: ['',Validators.required],
       });
 
   }
@@ -54,6 +56,8 @@ export class LoginPage {
   }
 
   login(){
+    //localStorage.setItem("ip", this.user.ip);
+    console.log(localStorage.getItem("ip"));
     this.submitAttempt=true;
     if (this.loginForm.valid){
       let email = this.user.email;
@@ -66,8 +70,10 @@ export class LoginPage {
           },
           () => {
               localStorage.setItem("token", this.token);
+
               this.events.publish('user:login');
               this.goToHome(null);
+              //console.log(localStorage.getItem("ip"));
           }
         )
       }

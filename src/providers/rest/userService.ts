@@ -9,13 +9,14 @@ import {User} from '../../models/User';
 
 @Injectable()
 export class UserService {
-  private apiUrl = 'http://192.168.99.101:4000/users';
+  private apiUrl ='http://'+localStorage.getItem("ip")+ ':4000/users';
   constructor(public http: Http) {
 
   }
 
 
   login(email: string, password: string){
+    //console.log(this.apiUrl);
     let body = JSON.stringify(
       {email: email,
       password: password

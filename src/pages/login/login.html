@@ -9,6 +9,7 @@
   <h1> Iniciar Sesion </h1>
   <form  [formGroup]="loginForm"  id="login-form1" >
     <ion-list id="login-list2" >
+
       <ion-item id="login-email">
         <ion-label floating>
           Email
@@ -29,6 +30,13 @@
 
       <ion-item no-lines *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
                 <p style="color:red;">No ingresó la contraseña</p>
+      </ion-item>
+
+      <ion-item id="login-ip">
+        <ion-label floating>
+          Ip
+        </ion-label>
+        <ion-input type="string" name="ip" required [(ngModel)]="user.ip"  formControlName="ip"></ion-input>
       </ion-item>
 
     </ion-list>

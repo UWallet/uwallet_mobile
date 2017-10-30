@@ -38,11 +38,11 @@ export class PendientesPage {
   }
   goToPagoPendiente(params){
      if (!params) params = {};
-     console.log("hola");
+     //console.log("hola");
      this.navCtrl.push(PagoPendientePage);
    }
    a(){
-      console.log("hola");
+      //console.log("hola");
     }
 
    //Muestra la lista de pagos pendientes
@@ -56,7 +56,7 @@ export class PendientesPage {
      this.rest.AllPendingPaysByUser().subscribe(
        arr => {
          this.ListPay = arr;
-         console.log(arr);
+         //console.log(arr);
        }
      );
    }
@@ -284,7 +284,7 @@ export class PendientesPage {
        handler: data => {
          this.listpayToUpdate=data;
          data.state_pay=!data.state_pay;
-         console.log(data);
+         //console.log(data);
          this.rest.ModifyPendingPay(data)
              .subscribe(
                  error => {this.errorMessage = <any>error
@@ -303,7 +303,7 @@ export class PendientesPage {
      });
      //this.RenderUserInfo();
      alert.present();
-     console.log(this.listpayToUpdate);
+     //console.log(this.listpayToUpdate);
    }
 
    pay() {
@@ -376,7 +376,7 @@ export class PendientesPage {
                       .subscribe(
                         res => this.res = res,
                         error => {this.errorMessage = <any>error;
-                          console.log(error)
+                          //console.log(error)
                          //this.handleError(error);
                         },
                         () => {
