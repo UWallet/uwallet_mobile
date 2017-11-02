@@ -2,7 +2,7 @@
   <ion-navbar hideBackButton>
     <ion-buttons left>
       <button ion-button color="transparent">
-        <img src="/assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
+        <img src="assets/logo_uwallet.png" alt="" title="" height="25px" width="75px"/>
       </button>
     </ion-buttons>
     <button ion-button  menuToggle="right" end>
@@ -15,16 +15,25 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page1">
-
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="home-container1">
-    <button id="home-button8" ion-button color="positive" block on-click="goToTransacciones()">
+    <button id="home-button8" ion-button color="positive" block on-click="goToTransacciones()" style=' height:125px'>
       Realizar Transferencia
+      <br>
+      <img src="assets/enviar_dinero.png" alt="" title="" style="float:left; margin-left:5px;" height="96px" width="96px"/>
     </button>
-    <button id="home-button9" ion-button color="positive" block on-click="goToPendientes()">
+    <button id="home-button9" ion-button color="positive" block on-click="goToPendientes()" style=' height:125px'>
       Pagos pendientes
+      <br>
+      <img src="assets/lista_pago.png" alt="" title="" style="float:left; margin-left:5px;" height="96px" width="96px"/>
     </button>
-    <button id="home-button10" ion-button color="positive" block on-click="alarm()">
+    <button id="home-button10" ion-button color="positive" block on-click="alarm()" style=' height:125px'>
       Generar Extracto
+      <br>
+      <img src="assets/pdf.png" alt="" title="" style="float:left; margin-left:5px;" height="96px" width="96px"/>
     </button>
   </div>
 </ion-content>
